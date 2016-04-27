@@ -1,0 +1,11 @@
+{
+  "name": "Dana",
+  "version": "1.0.0",
+  "description": "Connecting donors to non-profit organizations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stephanie Wang, Arushi Jain, Belce Dogru, Bronson Duran",
+  "license": "ISC"
+}
