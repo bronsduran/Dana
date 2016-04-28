@@ -11,11 +11,11 @@ Airtable.configure({
 });
 var base = Airtable.base('appfroa8YN4yjSWIk');
 
-app.set('view engine', 'jade');
+app.set('view engine', 'html');
 app.use('/', router);
 app.use(express.static('public'));
 app.get('/', function (req, res) {
-	res.sendFile( __dirname + "/views" + "/index.jade" );
+	res.sendFile( __dirname + "/views" + "/index.html" );
 });
 
 
