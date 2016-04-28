@@ -1,6 +1,14 @@
 var express = require('express');
 var router = require('./routes');
 var app = express();
+var airtableConfig = require('./secrets');
+var Airtable = require('airtable');
+//Configure the Airtable API
+Airtable.configure({
+	endpointUrl: 'http://localhost:5000', 
+	apikey: airtableConfig["AIRTABLE_API_KEY"];
+});
+var base = Airtable.base('appfroa8YN4yjSWIk');
 
 app.set('view engine', 'jade');
 app.use('/', router);

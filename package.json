@@ -9,6 +9,7 @@
   "author": "Stephanie Wang, Arushi Jain, Belce Dogru, Bronson Duran",
   "license": "ISC",
   "dependencies": {
+    "airtable": "^0.4.1",
     "express": "^4.13.4"
   }
 }
