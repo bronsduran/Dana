@@ -30,11 +30,9 @@ app.get('/', function (req, res) {
 
 
 //Configure the Airtable API
-var base = new Airtable({
-	apikey: airtableConfig["AIRTABLE_API_KEY"]
-}).base('appfroa8YN4yjSWIk');
+var base = Airtable.base('appfroa8YN4yjSWIk');
 
-//To list records in Beneficiaries. 
+//To list records in Beneficiaries.
 base('Projects').select({
 	//Selecting the first 3 records in Main View:
 	maxRecords: 3,
@@ -75,5 +73,3 @@ new WebpackDevServer(webpack(config), {
 
   console.log('Webpack server listening at http://localhost:3000/');
 });
-
-
