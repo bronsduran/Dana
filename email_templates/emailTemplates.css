@@ -1,0 +1,25 @@
+.thumbnail {
+  text-align: center;
+}
+.jumbotron {
+  height: 50vh;
+  text-align: center;
+  background-image: url(./assets/thankYouHeader.jpg);
+  color: white !important
+}
+.content {
+  height: 100vh;
+  text-align: center;
+}
+.progress {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.stage-photo {
+  width: 150px;
+  height: 150px;
+}
+.timeline {
+  width: 80%;
+}
