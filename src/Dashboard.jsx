@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-
+var Navbar = require('./Navbar.jsx');
+var BeneficiaryGrid = require('./BeneficiaryGrid.jsx');
 
 module.exports = React.createClass({
 
@@ -9,16 +10,9 @@ module.exports = React.createClass({
       return(
         <div className="dashboard">
 
-  	    	<Navbar
-  	    		handleModalOpen={this.handleModalOpen}
-  	    		programs={this.state.programs}
-  	    		selected={this.state.currentProgram}
-  	    		onProgramSelection={this.onProgramSelection} />
+  	    	<Navbar />
 
-      		<BeneficiaryGrid
-      			program={this.state.programs[this.state.currentProgram]}
-      			stories={this.state.stories}
-            onCompleteChapter={this.handleCompleteChapter} />
+      		<BeneficiaryGrid />
 
 
   	    </div>
