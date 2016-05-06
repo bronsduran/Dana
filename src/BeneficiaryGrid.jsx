@@ -15,7 +15,7 @@ module.exports = React.createClass({
       <Grid>
         <Row>
           <Col xs={12} md={3}>
-            <BeneficiaryCell data={this.props.data} />
+            <BeneficiaryCell />
           </Col>
           <Col xs={12} md={3}>
             <BeneficiaryCell />

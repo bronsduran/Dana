@@ -18,7 +18,7 @@ var rightButtonStyle = {
 
 module.exports = React.createClass({
 
-	
+
 
 	handleDashboardOpen() {
     ReactDOM.render(<Dashboard />, document.getElementById('container'));

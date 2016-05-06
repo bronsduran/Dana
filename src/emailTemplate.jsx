@@ -12,22 +12,21 @@ var TimeLine = React.createClass({
   render: function() {
     return (
       <div>
-        <Thumbnail src="Dana/src/assets/thumbnaildiv.png" alt="242x200">
+        <Thumbnail src="Dana/src/assets/stageOneImage.png" alt="242x200">
           <h4> Stage One: </h4>
           <h3> Project Funded </h3>
-          <p>Description</p>
         </Thumbnail>
-        <Thumbnail src="Dana/src/assets/thumbnaildiv.png" alt="242x200">
-          <h3> Stage Two </h3>
-          <p>Description</p>
+        <Thumbnail src="./assets/stageTwoImage.png" alt="242x200">
+          <h4> Stage Two: </h4>
+          <h3> Training Recieved </h3>
         </Thumbnail>
-        <Thumbnail src="Dana/src/assets/thumbnaildiv.png" alt="242x200">
-          <h3> Stage Three </h3>
-          <p> Description </p>
+        <Thumbnail src="./assets/stageThreeImage.png" alt="242x200">
+          <h4> Stage Three: </h4>
+          <h3> Business Formed </h3>
         </Thumbnail>
-        <Thumbnail src="Dana/src/assets/thumbnaildiv.png" alt="242x200">
-          <h3> Stage Four </h3>
-          <p> Description </p>
+        <Thumbnail src="./assets/thumbnaildiv.png" alt="242x200">
+          <h4> Stage Four: </h4>
+          <h3> Graduation </h3>
         </Thumbnail>
       </div>
     );
@@ -46,8 +45,14 @@ var Description = React.createClass({
 
 var JumboTron = React.createClass({
   render: function() {
+
+    var style = {
+      'backgroundImage': 'url(' + './assets/thankYouHeader.jpg' + ')'
+
+    };
+
     return (
-      <Jumbotron>
+      <Jumbotron style={style}>
         <h1>
           Thank You!
         </h1>
@@ -61,9 +66,10 @@ var JumboTron = React.createClass({
 
 module.exports = React.createClass({
   render: function() {
+
     return (
       <div>
-        <JumboTron />
+        <JumboTron/>
         <Description  />
         <TimeLine />
       </div>
