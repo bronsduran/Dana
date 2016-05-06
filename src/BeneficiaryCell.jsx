@@ -6,6 +6,7 @@ var Modal = require('react-bootstrap').Modal;
 var Popover = require('react-bootstrap').Popover;
 var Tooltip = require('react-bootstrap').Tooltip;
 var OverlayTrigger = require('react-bootstrap').OverlayTrigger;
+var EmailTemplate = require('./emailTemplate.jsx');
 
 module.exports = React.createClass({
 
@@ -27,28 +28,23 @@ module.exports = React.createClass({
 
       return (
         <div>
-        <Thumbnail src="/assets/thumbnaildiv.png" alt="242x200">
-          <h3>Thumbnail label</h3>
-            <p>Description</p>
-
-      <Button
-        bsStyle="primary"
-        bsSize="large"
-        onClick={this.open}
-      >
-        Launch demo modal
-      </Button>
-
-    </Thumbnail>
-          <p>Click to get the full Modal experience!</p>
-
-
+        <Thumbnail src='/assets/stageOneImage.png' alt="242x200">
+          <h3 className="beneficiaryName"> Akachi </h3>
+          <h5 className="beneficiaryStage"> Donation Recieved </h5>
+          <Button
+            bsStyle="primary"
+            onClick={this.open}
+          >
+          Update Donors
+          </Button>
+        </Thumbnail>
 
           <Modal show={this.state.showModal} onHide={this.close}>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title> Email Preview </Modal.Title>
             </Modal.Header>
             <Modal.Body>
+              <EmailTemplate />
               <h4>Text in a modal</h4>
               <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
 

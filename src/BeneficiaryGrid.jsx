@@ -5,13 +5,17 @@ var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
 
+
+
 module.exports = React.createClass({
+
+
   render: function() {
     return (
       <Grid>
         <Row>
           <Col xs={12} md={3}>
-            <BeneficiaryCell />
+            <BeneficiaryCell data={this.props.data} />
           </Col>
           <Col xs={12} md={3}>
             <BeneficiaryCell />

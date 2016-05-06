@@ -8,37 +8,28 @@ var Jumbotron = require('react-bootstrap').Jumbotron;
 
 
 
-
-var TimelineCell = React.createClass({
-  render: function() {
-    return (
-      <Thumbnail src="/assets/thumbnaildiv.png" alt="242x200">
-        <h3>Thumbnail label</h3>
-        <p>Description</p>
-      </Thumbnail>
-    );
-  }
-});
-
 var TimeLine = React.createClass({
   render: function() {
     return (
-      <Grid>
-        <Row>
-          <Col xs={12} md={3}>
-            <TimelineCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <TimelineCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <TimelineCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <TimelineCell />
-          </Col>
-        </Row>
-      </Grid>
+      <div>
+        <Thumbnail src="Dana/src/assets/thumbnaildiv.png" alt="242x200">
+          <h4> Stage One: </h4>
+          <h3> Project Funded </h3>
+          <p>Description</p>
+        </Thumbnail>
+        <Thumbnail src="Dana/src/assets/thumbnaildiv.png" alt="242x200">
+          <h3> Stage Two </h3>
+          <p>Description</p>
+        </Thumbnail>
+        <Thumbnail src="Dana/src/assets/thumbnaildiv.png" alt="242x200">
+          <h3> Stage Three </h3>
+          <p> Description </p>
+        </Thumbnail>
+        <Thumbnail src="Dana/src/assets/thumbnaildiv.png" alt="242x200">
+          <h3> Stage Four </h3>
+          <p> Description </p>
+        </Thumbnail>
+      </div>
     );
   }
 });
