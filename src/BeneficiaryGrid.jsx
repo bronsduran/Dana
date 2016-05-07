@@ -6,54 +6,21 @@ var Col = require('react-bootstrap').Col;
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
 
 
-
 module.exports = React.createClass({
 
-
   render: function() {
+    var rows = [];
+    this.props.beneficiaries.forEach(function(beneficiary) {
+        rows.push(
+          <Col xs={12} md={3}>
+            <BeneficiaryCell name={beneficiary.name} stage={beneficiary.stage}/>
+          </Col>
+          );
+        });
     return (
       <Grid>
         <Row>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
-          <Col xs={12} md={3}>
-            <BeneficiaryCell />
-          </Col>
+          {rows}
         </Row>
       </Grid>
     );

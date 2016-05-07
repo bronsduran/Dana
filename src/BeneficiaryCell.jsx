@@ -10,7 +10,7 @@ var EmailTemplate = require('./emailTemplate.jsx');
 
 module.exports = React.createClass({
 
-      getInitialState() {
+    getInitialState() {
       return { showModal: false };
     },
 
@@ -28,16 +28,14 @@ module.exports = React.createClass({
 
       return (
         <div>
-        <Thumbnail src='/assets/stageOneImage.png' alt="242x200">
-          <h3 className="beneficiaryName"> Akachi </h3>
-          <h5 className="beneficiaryStage"> Donation Recieved </h5>
-          <Button
-            bsStyle="primary"
-            onClick={this.open}
-          >
-          Update Donors
-          </Button>
-        </Thumbnail>
+          <Thumbnail src='/assets/stageOneImage.png' alt="242x200">
+            <h3>
+              {this.props.name}
+            </h3>
+            <Button bsStyle="primary" onClick={this.open}>
+              Update Donors
+            </Button>
+          </Thumbnail>
 
           <Modal show={this.state.showModal} onHide={this.close}>
             <Modal.Header closeButton>
@@ -51,7 +49,7 @@ module.exports = React.createClass({
               <Button bsStyle="primary"> Send </Button>
             </Modal.Footer>
           </Modal>
-          </div>
-          );
-        }
-      });
+        </div>
+      );
+    }
+  });

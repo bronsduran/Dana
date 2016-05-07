@@ -21,30 +21,15 @@ var headerStyle = {
 };
 
 
-
-
 module.exports = React.createClass({
 
-
   render() {
-
-
     return (
       <div>
-
         <Navbar>
-          <Nav style={{
-            position: 'relative',
-            left: '-120px'
-          }}>
-            <NavDropdown>
-
-
-              <MenuItem> Add Program</MenuItem>
-
-            </NavDropdown>
-
-          </Nav>
+          <NavDropdown>
+            <MenuItem> Add Program</MenuItem>
+          </NavDropdown>
 
           <Navbar.Header>
             <Navbar.Brand>
@@ -59,7 +44,6 @@ module.exports = React.createClass({
             </NavDropdown>
           </Nav>
         </Navbar>
-
       </div>
     );
   }

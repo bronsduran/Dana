@@ -5,7 +5,6 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 
-var airtableConfig = require('./secret');
 var Airtable = require('airtable');
 var path = require('path');
 
@@ -29,27 +28,9 @@ app.get('/', function (req, res) {
 // });
 
 
+
 //Configure the Airtable API
 var base = Airtable.base('appfroa8YN4yjSWIk');
-
-//To list records in Beneficiaries.
-base('Projects').select({
-	//Selecting the first 3 records in Main View:
-	maxRecords: 3,
-	view: "Main View"
-}).eachPage(function page(records, fetchNextPage) {
-
-	//This function will get called for each page of records.
-	records.forEach(function(record) {
-		console.log('Retreived', record.get('Name'));
-	});
-	fetchNextPage();
-
-}, function done(error) {
-	if(error) {
-		console.log(error);
-	}
-});
 
 
 app.set('port', process.env.PORT || 5000);
