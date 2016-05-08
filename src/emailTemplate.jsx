@@ -1,10 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Grid = require('react-bootstrap').Grid;
-var Row = require('react-bootstrap').Row;
-var Col = require('react-bootstrap').Col;
-var Thumbnail = require('react-bootstrap').Thumbnail;
-var Jumbotron = require('react-bootstrap').Jumbotron;
+import {Grid , Row, Col, Thumbnail, Jumbotron } from 'react-bootstrap'
 
 
 
@@ -36,9 +32,14 @@ var TimeLine = React.createClass({
 var Description = React.createClass({
   render: function() {
     return (
+      <div>
       <h5>
         Once your project is fully funded, you’ll recieve updates as your small business is formed and reaches the milestones below. Share on social media to get your buisiness off the ground quicker!
       </h5>
+      <h4>
+        {name}
+      </h4>
+      </div>
     );
   }
 });
@@ -69,8 +70,8 @@ module.exports = React.createClass({
 
     return (
       <div>
-        <JumboTron/>
-        <Description  />
+        <JumboTron />
+        <Description  name={this.props.name}/>
         <TimeLine />
       </div>
     );

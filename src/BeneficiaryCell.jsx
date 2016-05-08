@@ -8,6 +8,8 @@ var Tooltip = require('react-bootstrap').Tooltip;
 var OverlayTrigger = require('react-bootstrap').OverlayTrigger;
 var EmailTemplate = require('./emailTemplate.jsx');
 
+
+
 module.exports = React.createClass({
 
     getInitialState() {
@@ -23,8 +25,6 @@ module.exports = React.createClass({
     },
 
     render() {
-      let popover = <Popover title="popover">very popover. such engagement</Popover>;
-      let tooltip = <Tooltip>wow.</Tooltip>;
 
       return (
         <div>
@@ -32,6 +32,9 @@ module.exports = React.createClass({
             <h3>
               {this.props.name}
             </h3>
+            <h4>
+              {this.props.stage}
+            </h4>
             <Button bsStyle="primary" onClick={this.open}>
               Update Donors
             </Button>
@@ -42,7 +45,7 @@ module.exports = React.createClass({
               <Modal.Title> Email Preview </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <EmailTemplate />
+              <EmailTemplate name={this.props.name}/>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.close}>Close</Button>

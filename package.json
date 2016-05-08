@@ -16,6 +16,7 @@
     "react-bootstrap": "^0.29.2",
     "react-dom": "^15.0.1",
     "react-router": "^2.4.0",
+    "stellar-sdk": "^0.4.3",
     "webpack": "^1.13.0"
   },
   "devDependencies": {

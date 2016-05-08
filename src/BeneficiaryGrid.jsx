@@ -1,8 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Grid = require('react-bootstrap').Grid;
-var Row = require('react-bootstrap').Row;
-var Col = require('react-bootstrap').Col;
+import { Grid, Row, Col } from 'react-bootstrap'
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
 
 
@@ -10,10 +8,11 @@ module.exports = React.createClass({
 
   render: function() {
     var rows = [];
+
     this.props.beneficiaries.forEach(function(beneficiary) {
         rows.push(
           <Col xs={12} md={3}>
-            <BeneficiaryCell name={beneficiary.name} stage={beneficiary.stage}/>
+            <BeneficiaryCell name={beneficiary.name} stage={beneficiary.stage} key={beneficiary.id}/>
           </Col>
           );
         });

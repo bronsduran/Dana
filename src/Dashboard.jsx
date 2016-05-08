@@ -11,11 +11,11 @@ module.exports = React.createClass({
   render: function() {
 
     var beneficiaries = [
-            { name: 'Name1', description: 'Description1', state: 'needs funding', duration: '1 week'},
-            { name: 'Name2', description: 'Description2', state: 'needs funding', duration: '1 week'},
-            { name: 'Name3', description: 'Description3', state: 'needs funding', duration: '1 week'},
-            { name: 'Name4', description: 'Description4', state: 'needs funding', duration: '1 week'},
-            { name: 'Name5', description: 'Description5', state: 'needs funding', duration: '1 week'},
+            { id: 0, name: 'Name1', description: 'Description1', stage: 'needs funding', duration: '1 week'},
+            { id: 1, name: 'Name2', description: 'Description2', stage: 'needs funding', duration: '1 week'},
+            { id: 2, name: 'Name3', description: 'Description3', stage: 'needs funding', duration: '1 week'},
+            { id: 3, name: 'Name4', description: 'Description4', stage: 'needs funding', duration: '1 week'},
+            { id: 4, name: 'Name5', description: 'Description5', stage: 'needs funding', duration: '1 week'},
     ]
 
       return(
