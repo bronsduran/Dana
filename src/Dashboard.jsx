@@ -11,13 +11,19 @@ module.exports = React.createClass({
   render: function() {
 
     var beneficiaries = [
-            { id: 0, name: 'Name1', description: 'Description1', stage: 'needs funding', duration: '1 week'},
-            { id: 1, name: 'Name2', description: 'Description2', stage: 'needs funding', duration: '1 week'},
-            { id: 2, name: 'Name3', description: 'Description3', stage: 'needs funding', duration: '1 week'},
-            { id: 3, name: 'Name4', description: 'Description4', stage: 'needs funding', duration: '1 week'},
-            { id: 4, name: 'Name5', description: 'Description5', stage: 'needs funding', duration: '1 week'},
+      { id: 0, name: 'Name1', imageUrl: '', description: 'Description1', stage: '0', duration: '1 week'},
+      { id: 1, name: 'Name2', imageUrl: '', description: 'Description2', stage: '0', duration: '1 week'},
+      { id: 2, name: 'Name3', imageUrl: '', description: 'Description3', stage: '1', duration: '1 week'},
+      { id: 3, name: 'Name4', imageUrl: '', description: 'Description4', stage: '2', duration: '1 week'},
+      { id: 4, name: 'Name5', imageUrl: '', description: 'Description5', stage: '3', duration: '1 week'},
     ]
 
+    var stages = [
+      {id: 0, name: 'Stage One', imageUrl: '', description: 'Project Started', headerMessage: ''},
+      {id: 1, name: 'Stage Two', imageUrl: '', description: 'Training Recieved', headerMessage: ''},
+      {id: 2, name: 'Stage Three', imageUrl: '', description: 'Seed Funding', headerMessage: ''},
+      {id: 3, name: 'Stage Four', imageUrl: '', description: 'Graduation', headerMessage: ''}, 
+    ]
       return(
         <div className="dashboard">
   	    	<Navbar />

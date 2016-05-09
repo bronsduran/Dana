@@ -10,6 +10,7 @@ var path = require('path');
 
 var app = express();
 
+
 var compiler = webpack(config);
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
@@ -27,10 +28,10 @@ app.get('/', function (req, res) {
 // 	res.sendFile( __dirname + "/views" + "/index.html" );
 // });
 
-
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Configure the Airtable API
-var base = Airtable.base('appfroa8YN4yjSWIk');
+module.exports = Airtable.base('appfroa8YN4yjSWIk');
 
 
 app.set('port', process.env.PORT || 5000);

@@ -1,11 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Thumbnail = require('react-bootstrap').Thumbnail;
-var Button = require('react-bootstrap').Button;
-var Modal = require('react-bootstrap').Modal;
-var Popover = require('react-bootstrap').Popover;
-var Tooltip = require('react-bootstrap').Tooltip;
-var OverlayTrigger = require('react-bootstrap').OverlayTrigger;
+import { Thumbnail, Button, Modal, Popover, Tooltip, OverlayTrigger } from 'react-bootstrap'
 var EmailTemplate = require('./emailTemplate.jsx');
 
 

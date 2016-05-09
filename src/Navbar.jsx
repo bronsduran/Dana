@@ -1,12 +1,7 @@
 var React = require('react');
 var ReactBootstrap = require('react-bootstrap');
-var Navbar = require('react-bootstrap').Navbar;
-var Nav = require('react-bootstrap').Nav;
-var Navbar = require('react-bootstrap').Navbar;
-var NavItem = require('react-bootstrap').NavItem;
-var NavDropdown = require('react-bootstrap').NavDropdown;
-var Button = require('react-bootstrap').Button;
-var MenuItem = require('react-bootstrap').MenuItem;
+import { Navbar, Nav, NavItem, NavDropdown, Button, MenuItem } from 'react-bootstrap'
+
 /*
  *  ========================== Navbar ==========================
  */
@@ -27,9 +22,7 @@ module.exports = React.createClass({
     return (
       <div>
         <Navbar>
-          <NavDropdown>
             <MenuItem> Add Program</MenuItem>
-          </NavDropdown>
 
           <Navbar.Header>
             <Navbar.Brand>
