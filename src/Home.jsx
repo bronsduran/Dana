@@ -31,16 +31,7 @@ module.exports = React.createClass({
 
 		return (
 			<div>
-				<Button
-					style={leftButtonStyle}
-					onClick={this.handleDashboardOpen}
-					bsStyle="primary"
-					bsSize="large"> Donor Management Dashboard </Button>
-				<Button
-					style={rightButtonStyle}
-					onClick={this.handleAirtableOpen}
-					bsStyle="primary"
-					bsSize="large"> View All Data </Button>
+				<Dashboard />
 			</div>
 		)
 	}

@@ -4,7 +4,6 @@ import { Thumbnail, Button, Modal, Popover, Tooltip, OverlayTrigger } from 'reac
 var EmailTemplate = require('./emailTemplate.jsx');
 
 
-
 module.exports = React.createClass({
 
     getInitialState() {
@@ -23,7 +22,7 @@ module.exports = React.createClass({
 
       return (
         <div>
-          <Thumbnail src='/assets/stageOneImage.png' alt="242x200">
+          <Thumbnail src='' alt="242x200">
             <h3>
               {this.props.name}
             </h3>

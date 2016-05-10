@@ -28,7 +28,6 @@ app.get('/', function (req, res) {
 // 	res.sendFile( __dirname + "/views" + "/index.html" );
 // });
 
-app.use(express.static(path.join(__dirname, 'public')));
 
 //Configure the Airtable API
 module.exports = Airtable.base('appfroa8YN4yjSWIk');

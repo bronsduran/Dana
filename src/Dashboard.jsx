@@ -4,11 +4,11 @@ var Navbar = require('./Navbar.jsx');
 var BeneficiaryGrid = require('./BeneficiaryGrid.jsx');
 var SearchBar = require('./SearchBar.jsx');
 
-
-
 module.exports = React.createClass({
 
+
   render: function() {
+
 
     var beneficiaries = [
       { id: 0, name: 'Name1', imageUrl: '', description: 'Description1', stage: '0', duration: '1 week'},
@@ -18,12 +18,6 @@ module.exports = React.createClass({
       { id: 4, name: 'Name5', imageUrl: '', description: 'Description5', stage: '3', duration: '1 week'},
     ]
 
-    var stages = [
-      {id: 0, name: 'Stage One', imageUrl: '', description: 'Project Started', headerMessage: ''},
-      {id: 1, name: 'Stage Two', imageUrl: '', description: 'Training Recieved', headerMessage: ''},
-      {id: 2, name: 'Stage Three', imageUrl: '', description: 'Seed Funding', headerMessage: ''},
-      {id: 3, name: 'Stage Four', imageUrl: '', description: 'Graduation', headerMessage: ''}, 
-    ]
       return(
         <div className="dashboard">
   	    	<Navbar />
