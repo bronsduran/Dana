@@ -22,7 +22,7 @@ module.exports = React.createClass({
 
       return (
         <div>
-          <Thumbnail src='' alt="242x200">
+          <Thumbnail src={this.props.img} alt="242x200">
             <h3>
               {this.props.name}
             </h3>

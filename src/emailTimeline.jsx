@@ -9,7 +9,7 @@ module.exports = React.createClass({
     this.props.stages.forEach(function(stage) {
         cells.push(
           <Col xs={3} md={3}>
-            <Thumbnail src='' alt="242x200">
+            <Thumbnail src={stage.imageUrl} alt="242x200">
               <h5> {stage.name} </h5>
               <h4> {stage.description} </h4>
             </Thumbnail>

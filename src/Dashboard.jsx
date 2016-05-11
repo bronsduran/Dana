@@ -5,49 +5,57 @@ var BeneficiaryGrid = require('./BeneficiaryGrid.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Airtable = require('airtable');
 
-var base = new Airtable({ apiKey: 'keyJoo0QH6ip5yH4S' }).base('appfroa8YN4yjSWIk');
 
 
-var records = [];
-base('Projects').select({
-    // Selecting the first 3 records in Main View:
-    maxRecords: 3,
-    view: "Main View"
-}).eachPage(function page(records, fetchNextPage) {
 
-    // This function (`page`) will get called for each page of records.
-
-    records.forEach(function(record) {
-        records.push(record);
-        console.log('Retrieved ', record.get('Name'));
-
-    });
-    console.log(records);
-    // To fetch the next page of records, call `fetchNextPage`.
-    // If there are more records, `page` will get called again.
-    // If there are no more records, `done` will get called.
-    fetchNextPage();
-
-}, function done(error) {
-    if (error) {
-        console.log(error);
-    }
-});
 
 module.exports = React.createClass({
 
+  getInitialState: function() {
+    var base = new Airtable({ apiKey: 'keyJoo0QH6ip5yH4S' }).base('appfroa8YN4yjSWIk');
+    var beneficiaries = [];
+
+    base('Projects').select({
+        // Selecting the first 3 records in Main View:
+        maxRecords: 5,
+        view: "Main View"
+    }).eachPage(function page(records, fetchNextPage) {
+
+        // This function (`page`) will get called for each page of records.
+        records.forEach(function(record) {
+
+            beneficiaries.push(
+              {
+              name: record.get('Name'),
+              stage: record.get('Stage'),
+              description: record.get('Description'),
+              imageUrl: record.get('Photo')[0].url
+            }
+          )
+        });
+        //console.log(beneficiaries);
+        fetchNextPage();
+
+    }, function done(error) {
+        if (error) {
+            console.log(error);
+        }
+    });
+    return {data: beneficiaries};
+  },
 
   render: function() {
 
 
+//    console.log('this.state. = ', this.state);
     var beneficiaries = [
-      { id: 0, name: 'Name1', imageUrl: '', description: 'Description1', stage: '0', duration: '1 week'},
-      { id: 1, name: 'Name2', imageUrl: '', description: 'Description2', stage: '0', duration: '1 week'},
-      { id: 2, name: 'Name3', imageUrl: '', description: 'Description3', stage: '1', duration: '1 week'},
-      { id: 3, name: 'Name4', imageUrl: '', description: 'Description4', stage: '2', duration: '1 week'},
-      { id: 4, name: 'Name5', imageUrl: '', description: 'Description5', stage: '3', duration: '1 week'},
+      { id: 0, name: 'Fatima', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description1', stage: 'Needs Funding', duration: '1 week'},
+      { id: 1, name: 'Bronson', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description2', stage: 'Needs Funding', duration: '1 week'},
+      { id: 2, name: 'Belce', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description3', stage: 'Training Recieved', duration: '1 week'},
+      { id: 3, name: 'Nathan', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description4', stage: 'Graduated', duration: '1 week'},
+      { id: 4, name: 'Arushi', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description5', stage: 'Graduated', duration: '1 week'},
+      { id: 4, name: 'Stephanie', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description5', stage: 'Graduated', duration: '1 week'}
     ]
-
       return(
         <div className="dashboard">
   	    	<Navbar />
@@ -56,3 +64,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module

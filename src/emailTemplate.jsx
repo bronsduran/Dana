@@ -11,10 +11,10 @@ module.exports = React.createClass({
   render: function() {
 
     var stages = [
-      {id: 0, name: 'Stage One', imageUrl: '', description: 'Project Started', headerMessage: ''},
-      {id: 1, name: 'Stage Two', imageUrl: '', description: 'Training Recieved', headerMessage: ''},
-      {id: 2, name: 'Stage Three', imageUrl: '', description: 'Seed Funding', headerMessage: ''},
-      {id: 3, name: 'Stage Four', imageUrl: '', description: 'Graduation', headerMessage: ''},
+      {id: 0, name: 'Stage One', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Project Started', headerMessage: ''},
+      {id: 1, name: 'Stage Two', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Training Recieved', headerMessage: ''},
+      {id: 2, name: 'Stage Three', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Seed Funding', headerMessage: ''},
+      {id: 3, name: 'Stage Four', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Graduation', headerMessage: ''},
     ]
 
 
