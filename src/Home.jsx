@@ -32,7 +32,7 @@ module.exports = React.createClass({
 
 		return (
 			<div>
-				<Dashboard />
+				<Dashboard pollInterval={3000}/>
 			</div>
 		)
 	}
