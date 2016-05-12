@@ -9,7 +9,7 @@ var Airtable = require('airtable');
 module.exports = React.createClass({
 
 
-  loadCommentsFromServer: function() {
+  loadDataFromAirtable: function() {
     var base = new Airtable({ apiKey: 'keyJoo0QH6ip5yH4S' }).base('appfroa8YN4yjSWIk');
     var beneficiaries = [];
 
@@ -47,25 +47,16 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function() {
-    this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+    this.loadDataFromAirtable();
+    setInterval(this.loadDataFromAirtable, this.props.pollInterval);
   },
 
 
   render: function() {
-
-    // var beneficiaries = [
-    //   { id: 0, name: 'Fatima', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description1', stage: 'Needs Funding', duration: '1 week'},
-    //   { id: 1, name: 'Bronson', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description2', stage: 'Needs Funding', duration: '1 week'},
-    //   { id: 2, name: 'Belce', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description3', stage: 'Training Recieved', duration: '1 week'},
-    //   { id: 3, name: 'Nathan', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description4', stage: 'Graduated', duration: '1 week'},
-    //   { id: 4, name: 'Arushi', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description5', stage: 'Graduated', duration: '1 week'},
-    //   { id: 4, name: 'Stephanie', imageUrl: 'https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png', description: 'Description5', stage: 'Graduated', duration: '1 week'}
-    // ]
       return(
         <div className="dashboard">
-  	    	<Navbar />
-      		<BeneficiaryGrid beneficiaries={this.state.data} />
+        <BeneficiaryGrid beneficiaries={this.state.data}/>
+
   	    </div>
     );
   }
