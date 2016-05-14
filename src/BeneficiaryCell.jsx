@@ -1,22 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import { Thumbnail, Button, Modal, Popover, Tooltip, OverlayTrigger } from 'react-bootstrap'
-var EmailTemplate = require('./emailTemplate.jsx');
 
 
 module.exports = React.createClass({
-
-    getInitialState() {
-      return { showModal: false };
-    },
-
-    close() {
-      this.setState({ showModal: false });
-    },
-
-    open() {
-      this.setState({ showModal: true });
-    },
 
     render() {
 
@@ -29,23 +16,15 @@ module.exports = React.createClass({
             <h4>
               {this.props.stage}
             </h4>
-            <Button bsStyle="primary" onClick={this.open}>
-              Update Donors
-            </Button>
+
+            <h4>
+              {this.props.donorList}
+            </h4>
+            <h4>
+              {this.props.stage}
+            </h4>
           </Thumbnail>
 
-          <Modal show={this.state.showModal} onHide={this.close}>
-            <Modal.Header closeButton>
-              <Modal.Title> Email Preview </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <EmailTemplate name={this.props.name}/>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={this.close}>Close</Button>
-              <Button bsStyle="primary"> Send </Button>
-            </Modal.Footer>
-          </Modal>
         </div>
       );
     }

@@ -36,7 +36,9 @@ module.exports = React.createClass({
 		return (
       <div className="homepage">
         <Navbar />
-        <h1> Welcome back Homies!</h1>
+        <h1> Welcome back!</h1>
+        
+
         <DonorStats />
 
           <br/>

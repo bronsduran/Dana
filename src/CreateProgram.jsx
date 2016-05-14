@@ -12,7 +12,7 @@ module.exports = React.createClass({
 
 		return (
 			<div>
-      </div>
+      		</div>
 		);
 	}
 });

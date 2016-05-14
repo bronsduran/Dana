@@ -13,9 +13,9 @@ module.exports = React.createClass({
     var base = new Airtable({ apiKey: 'keyJoo0QH6ip5yH4S' }).base('appfroa8YN4yjSWIk');
     var beneficiaries = [];
 
-    base('Projects').select({
+    base('UOI').select({
         // Selecting the first 3 records in Main View:
-        maxRecords: 5,
+        maxRecords: 100,
         view: "Main View"
     }).eachPage(function page(records, fetchNextPage) {
 
@@ -24,9 +24,13 @@ module.exports = React.createClass({
 
             beneficiaries.push(
               {
+              id: record.get('Id'),
               name: record.get('Name'),
-              stage: record.get('Stage'),
+              location: record.get('Location'),
+              cost: record.get('Cost'),
               description: record.get('Description'),
+              donorList: ['Arushi', 'Bronson', 'Avarna'],
+              emailStatus: "Stage 3",
               imageUrl: record.get('Photo')[0].url
             }
           )
@@ -42,13 +46,57 @@ module.exports = React.createClass({
     });
   },
 
+   loadData: function() {
+    var beneficiaries = [];
+  },
+
   getInitialState: function() {
-    return {data: []};
+      
+
+    var data = $.getJSON( "./src/data/uoi.json", function() {
+      console.log( "success" );
+    })
+      .done(function() {
+        console.log( "second success" );
+      })
+      .fail(function() {
+        console.log( "error" );
+      })
+      .always(function() {
+        console.log(data);
+      });
+
+
+    return {data: [{
+              id: 1,
+              name: 'Arushi Jain',
+              location: 'Delhi',
+              cost: '$10',
+              description: 'Middle school student in India',
+              donorList: ['Arushi', 'Bronson', 'Avarna'],
+              emailStatus: "Stage 3",
+              imageUrl: 'NULL'
+            }, 
+
+            {
+              id: 2,
+              name: 'Avarna Jain',
+              location: 'Delhi',
+              cost: '$10',
+              description: 'Middle school student in India',
+              donorList: ['Arushi', 'Bronson', 'Avarna'],
+              emailStatus: "Stage 3",
+              imageUrl: 'NULL'
+              }
+
+      ]};
+
+
   },
 
   componentDidMount: function() {
-    this.loadDataFromAirtable();
-    setInterval(this.loadDataFromAirtable, this.props.pollInterval);
+    this.loadData();
+    setInterval(this.loadData, this.props.pollInterval);
   },
 
 
