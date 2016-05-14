@@ -1,5 +1,4 @@
 var express = require('express');
-var router = require('./routes');
 
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');

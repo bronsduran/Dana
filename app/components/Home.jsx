@@ -8,17 +8,10 @@ var Navbar = require('./Navbar.jsx');
 var DonorStats = require('./DonorStats.jsx');
 
 
-var leftButtonStyle = {
+var ButtonStyle = {
   display: 'inline',
   marginRight: '30px'
 };
-
-var rightButtonStyle = {
-  display: 'inline',
-  marginLeft: '30px'
-
-};
-
 
 module.exports = React.createClass({
 
@@ -34,41 +27,33 @@ module.exports = React.createClass({
 	render() {
 
 		return (
-      <div className="homepage">
-        <Navbar />
-        <h1> Welcome back!</h1>
-        
-
         <DonorStats />
-
-          <br/>
 
           <div style={{
             paddingTop: '30px',
-            width: '440px',
+            width: 'auto',
             margin: '0 auto',
           }}>
             <Button
-              style={leftButtonStyle}
+              style={ButtonStyle}
               onClick={this.handleModalOpen}
               bsStyle="primary"
               bsSize="large">Create New Program
             </Button>
             <Button
-              style={rightButtonStyle}
+              style={ButtonStyle}
               onClick={this.handleDashboardOpen}
-              bsStyle="success"
+              bsStyle="primary"
               bsSize="large">Enter Dashboard
             </Button>
             <Button
-            style={rightButtonStyle}
+            style={ButtonStyle}
             onClick={this.handleAirtableOpen}
-            bsStyle="success"
+            bsStyle="primary"
             bsSize="large">View All Data
             </Button>
-          </div>
-      </div>
-
-		)
-	}
+         </div>
+        </div>
+    );
+  }
 });
