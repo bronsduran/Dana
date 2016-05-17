@@ -27,6 +27,12 @@ module.exports = React.createClass({
 	render() {
 
 		return (
+<<<<<<< HEAD:app/components/Home.jsx
+=======
+      <div className="homepage">
+        <Navbar />
+        <h1> Welcome back :)</h1>
+>>>>>>> 1a540635c5fd22ba62c8ef825b21b7f03b1e7a85:src/Home.jsx
         <DonorStats />
 
           <div style={{
