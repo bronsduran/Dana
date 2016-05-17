@@ -1,5 +1,5 @@
 var React = require('react');
-import {ButtonToolbar, Button} from 'react-bootstrap'
+import {ButtonToolbar, Button, Thumbnail} from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');
 var ReactDOM = require('react-dom');
 
@@ -7,7 +7,9 @@ var ReactDOM = require('react-dom');
 
 var leftButtonStyle = {
   display: 'inline',
-  marginRight: '30px'
+  marginRight: '30px',
+  marginBottom: '0px',
+   bottom: '0'
 };
 
 var rightButtonStyle = {
@@ -16,21 +18,28 @@ var rightButtonStyle = {
 
 };
 
-var donorListStyle = {
-  paddingRight: '5px'
-};
+
+var style = {
+  width: 'auto',
+  height: '100vh'
+}
 
 module.exports = React.createClass({
 
   render: function() {
-
       return(
-        <div>
-        <div className="donorList" style={donorListStyle}>
-        <h6> Donors with beneficiaries at stage</h6>
-           {this.props.donors}
-        </div>
 
+        <div className="donorList">
+          <Thumbnail style={style}>
+            <ul style={{marginRight: '20px'}}>
+              {this.props.donors}
+            </ul>
+            <Button
+              style={leftButtonStyle}
+              bsStyle="primary"
+              bsSize="large">Send Update
+            </Button>
+          </Thumbnail>
         </div>
       )
     }

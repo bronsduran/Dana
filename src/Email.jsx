@@ -22,16 +22,18 @@ var rightButtonStyle = {
 module.exports = React.createClass({
 
   render: function() {
-    var donorsData = ['arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu']
-    var donors = [];
 
 
+    var donorsData = ['arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu', 'arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu']
+    var donors = []
     //  console.log('this.props =', this.props);
     for (var donor in donorsData) {
         donors.push(
+          <li>
             <Checkbox inline onChange={console.log(this)} className={donor}>
               {donorsData[donor]}
             </Checkbox>
+            </li>
           );
       }
 
@@ -45,6 +47,7 @@ module.exports = React.createClass({
             <ul>
               <DonorSidebar donors={donors} />
             </ul>
+
           </Col>
         </div>
 
