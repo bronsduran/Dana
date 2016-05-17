@@ -1,14 +1,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Button, Grid, Row, Col } from 'react-bootstrap'
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
+var Email = require('./Email.jsx');
 
 
 module.exports = React.createClass({
 
   render: function() {
     var rows = [];
-  //  console.log('this.props =', this.props);
     this.props.beneficiaries.forEach(function(beneficiary) {
         rows.push(
           <Col xs={12} md={3}>
@@ -18,11 +18,19 @@ module.exports = React.createClass({
         });
 
     return (
-      <Grid>
-        <Row>
-          {rows}
-        </Row>
-      </Grid>
+      <div style={{
+        paddingTop: '10px'
+
+      }}>
+        <Grid>
+          <Row>
+            {rows}
+          </Row>
+          <Button bsStyle="primary" >
+            Update Donors
+          </Button>
+        </Grid>
+      </div>
     );
   }
 });

@@ -9,6 +9,7 @@ var NextSteps = require('./NextSteps.jsx');
 module.exports = React.createClass({
 
 
+
   render: function() {
 
     var stages = [
@@ -22,7 +23,7 @@ module.exports = React.createClass({
     return (
       <div className="container text-center">
         <Header stages={stages}/>
-        <Description  uoi_name={this.props.uoi_name} uoi_stage={this.props.uoi_stage}/>
+        <Description  uoi_name="name" uoi_stage="stage"/>
         <TimeLine stages={stages}/>
         <NextSteps />
       </div>

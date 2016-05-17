@@ -9,7 +9,7 @@ var leftButtonStyle = {
   display: 'inline',
   marginRight: '30px',
   marginBottom: '0px',
-   bottom: '0'
+  bottom: '0'
 };
 
 var rightButtonStyle = {
@@ -20,9 +20,9 @@ var rightButtonStyle = {
 
 
 var style = {
-  width: 'auto',
+  width: '100%',
   height: '100vh'
-}
+};
 
 module.exports = React.createClass({
 
@@ -31,7 +31,7 @@ module.exports = React.createClass({
 
         <div className="donorList">
           <Thumbnail style={style}>
-            <ul style={{marginRight: '20px'}}>
+            <ul>
               {this.props.donors}
             </ul>
             <Button
@@ -41,6 +41,6 @@ module.exports = React.createClass({
             </Button>
           </Thumbnail>
         </div>
-      )
+      );
     }
   });

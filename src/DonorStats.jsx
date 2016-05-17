@@ -5,7 +5,6 @@ import {ButtonToolbar, Button} from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');
 var ReactDOM = require('react-dom');
 
-
 var tableCellStyle = {
   padding: '30px'
 };
@@ -46,7 +45,7 @@ module.exports = React.createClass({
             <tbody>
               <tr>
                 <td style={tableCellStyle}>
-                  <img src="./src/assets/images/Data_Donation_Ave.png" style={largePic} />
+                  <img src="" style={largePic} />
                 </td>
                 <td style={tableCellStyle}>
                   <img src="./src/assets/images/Data_Donations.png" style={largePic} />

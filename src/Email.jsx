@@ -4,7 +4,7 @@ var Dashboard = require('./Dashboard.jsx');
 var ReactDOM = require('react-dom');
 var EmailTemplate = require('./EmailTemplate.jsx');
 var Navbar = require('./Navbar.jsx');
-var DonorSidebar = require('./DonorSidebar.jsx')
+var DonorSidebar = require('./DonorSidebar.jsx');
 var leftButtonStyle = {
   display: 'inline',
   marginRight: '30px'
@@ -17,8 +17,6 @@ var rightButtonStyle = {
 };
 
 
-
-
 module.exports = React.createClass({
 
   render: function() {
@@ -27,16 +25,15 @@ module.exports = React.createClass({
     var donorsData = ['arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu', 'arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu']
     var donors = []
     //  console.log('this.props =', this.props);
-    for (var donor in donorsData) {
-        donors.push(
-          <li>
-            <Checkbox inline onChange={console.log(this)} className={donor}>
-              {donorsData[donor]}
-            </Checkbox>
+      donorsData.forEach(function(donor) {
+          donors.push(
+            <li>
+              <Checkbox inline>
+                {donor}
+              </Checkbox>
             </li>
-          );
-      }
-
+            );
+          });
 
       return(
         <div className="row" >
@@ -47,10 +44,9 @@ module.exports = React.createClass({
             <ul>
               <DonorSidebar donors={donors} />
             </ul>
-
           </Col>
         </div>
 
-      )
+      );
     }
   });
