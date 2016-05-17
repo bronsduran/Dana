@@ -22,7 +22,7 @@ var rightButtonStyle = {
 module.exports = React.createClass({
 
   render: function() {
-    var donorsData = ['arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu']
+    var donorsData = ['arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu', 'arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu']
     var donors = []
     //  console.log('this.props =', this.props);
     donorsData.forEach(function(donor) {
@@ -41,9 +41,7 @@ module.exports = React.createClass({
             <EmailTemplate />
           </Col>
           <Col xs={12} md={2} >
-            <ul>
               <DonorSidebar donors={donors}/>
-            </ul>
           </Col>
         </div>
 
