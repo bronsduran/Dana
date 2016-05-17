@@ -13,7 +13,7 @@ module.exports = React.createClass({
     var base = new Airtable({ apiKey: 'keyJoo0QH6ip5yH4S' }).base('appfroa8YN4yjSWIk');
     var beneficiaries = [];
 
-    base('Projects').select({
+    base('UOI').select({
         // Selecting the first 3 records in Main View:
         maxRecords: 5,
         view: "Main View"
