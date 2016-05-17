@@ -4,6 +4,7 @@ import {Grid , Row, Col, Thumbnail, Jumbotron } from 'react-bootstrap'
 var TimeLine = require('./emailTimeline.jsx');
 var Description = require('./emailDescription.jsx');
 var Header = require('./emailHeader.jsx');
+var NextSteps = require('./NextSteps.jsx');
 
 module.exports = React.createClass({
 
@@ -19,10 +20,11 @@ module.exports = React.createClass({
 
 
     return (
-      <div>
+      <div className="container text-center">
         <Header stages={stages}/>
-        <Description  name={this.props.name}/>
+        <Description  uoi_name={this.props.uoi_name} uoi_stage={this.props.uoi_stage}/>
         <TimeLine stages={stages}/>
+        <NextSteps />
       </div>
     );
   }

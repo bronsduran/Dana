@@ -7,7 +7,10 @@ module.exports = React.createClass({
     return (
       <div>
         <h5>
-          Once your project is fully funded, you’ll recieve updates as your small business is formed and reaches the milestones below. Share on social media to get your buisiness off the ground quicker!
+          {this.props.uoi_name} is now at {this.props.stage}!
+
+          Thank you for your support :)
+          
         </h5>
       </div>
     );

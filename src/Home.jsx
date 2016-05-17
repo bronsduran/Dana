@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');
 var Navbar = require('./Navbar.jsx');
 var DonorStats = require('./DonorStats.jsx');
+var EmailTemplate = require('./emailTemplate.jsx');
 
 
 var leftButtonStyle = {
@@ -30,6 +31,11 @@ module.exports = React.createClass({
   handleAirtableOpen() {
     ReactDOM.render(<AirtableData iframe='iframe' src="https://airtable.com/embed/shrHQgGYJfY1XScnK?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" />, document.getElementById('container'));
   },
+
+  handleEmailTemplateOpen() {
+    ReactDOM.render(<EmailTemplate name="name" />, document.getElementById('container'));
+  },
+
 
 	render() {
 
@@ -63,6 +69,12 @@ module.exports = React.createClass({
             onClick={this.handleAirtableOpen}
             bsStyle="success"
             bsSize="large">View All Data
+            </Button>
+            <Button
+            style={rightButtonStyle}
+            onClick={this.handleEmailTemplateOpen}
+            bsStyle="success"
+            bsSize="large">Email Template
             </Button>
           </div>
       </div>

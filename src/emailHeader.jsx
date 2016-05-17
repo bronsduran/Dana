@@ -12,11 +12,9 @@ module.exports = React.createClass({
     return (
       <Jumbotron style={style}>
         <h1>
-          Thank You!
+          Your beneficary is now a the next stage!
         </h1>
-        <p>
-            Your $20 gets us one step closer to reaching the $500 needed to help start a small business!
-        </p>
+
       </Jumbotron>
     )
   }
