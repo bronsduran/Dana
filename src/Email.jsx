@@ -23,17 +23,18 @@ module.exports = React.createClass({
 
   render: function() {
     var donorsData = ['arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu']
-    var donors = []
+    var donors = [];
+
+
     //  console.log('this.props =', this.props);
-    donorsData.forEach(function(donor) {
+    for (var donor in donorsData) {
         donors.push(
-          <li>
-            <Checkbox inline>
-              {donor}
+            <Checkbox inline onChange={console.log(this)} className={donor}>
+              {donorsData[donor]}
             </Checkbox>
-          </li>
           );
-        });
+      }
+
 
       return(
         <div className="row" >
@@ -42,7 +43,7 @@ module.exports = React.createClass({
           </Col>
           <Col xs={12} md={2} >
             <ul>
-              <DonorSidebar donors={donors}/>
+              <DonorSidebar donors={donors} />
             </ul>
           </Col>
         </div>

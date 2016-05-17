@@ -16,6 +16,9 @@ var rightButtonStyle = {
 
 };
 
+var donorListStyle = {
+  paddingRight: '5px'
+};
 
 module.exports = React.createClass({
 
@@ -23,10 +26,9 @@ module.exports = React.createClass({
 
       return(
         <div>
-        <div className="donorList">
-        <ul>
+        <div className="donorList" style={donorListStyle}>
+        <h6> Donors with beneficiaries at stage</h6>
            {this.props.donors}
-        </ul>
         </div>
 
         </div>
