@@ -4,6 +4,7 @@ var Navbar = require('./Navbar.jsx');
 var BeneficiaryGrid = require('./BeneficiaryGrid.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Airtable = require('airtable');
+import { Tabs, Tab, Badge } from 'react-bootstrap';
 
 
 module.exports = React.createClass({
@@ -55,7 +56,13 @@ module.exports = React.createClass({
   render: function() {
       return(
         <div className="dashboard">
-        <BeneficiaryGrid beneficiaries={this.state.data}/>
+          <Tabs defaultActiveKey={1} justified animation={false} id="noanim-tab-example">
+            <Tab eventKey={1} title="Stage 1"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
+            <Tab eventKey={2} title="Stage 2"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
+            <Tab eventKey={3} title="Stage 3"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
+            <Tab eventKey={4} title="Stage 4"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
+          </Tabs>
+
 
   	    </div>
     );
