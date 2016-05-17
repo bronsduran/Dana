@@ -6,7 +6,6 @@ import { Thumbnail, Button, Modal, Popover, Tooltip, OverlayTrigger } from 'reac
 module.exports = React.createClass({
 
     render() {
-
       return (
         <div>
           <Thumbnail src={this.props.img} alt="242x200">

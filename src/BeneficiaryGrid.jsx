@@ -1,11 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-import { Grid, Row, Col , Modal, Button} from 'react-bootstrap'
+import { Grid, Row, Col , Modal, Button, Dropdown} from 'react-bootstrap'
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
 var EmailTemplate = require('./emailTemplate.jsx');
 var EmailEditable = require('./EmailEditable.jsx');
 var EmailModal = require('./EmailModal.jsx');
-var Dropdown = require('./Dropdown.jsx');
 
 
 module.exports = React.createClass({

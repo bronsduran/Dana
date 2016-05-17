@@ -56,15 +56,9 @@ module.exports = React.createClass({
             </Button>
             <Button
               style={rightButtonStyle}
-              onClick={this.handleDashboardOpen}
+              onClick={this.handleAirtableOpen}
               bsStyle="success"
               bsSize="large">Enter Dashboard
-            </Button>
-            <Button
-            style={rightButtonStyle}
-            onClick={this.handleAirtableOpen}
-            bsStyle="success"
-            bsSize="large">View All Data
             </Button>
           </div>
       </div>
