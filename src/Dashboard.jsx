@@ -12,9 +12,9 @@ module.exports = React.createClass({
 
   loadDataFromAirtable: function() {
     var base = new Airtable({ apiKey: 'keyJoo0QH6ip5yH4S' }).base('appfroa8YN4yjSWIk');
-    var beneficiaries = [];
-
-    base('UOI').select({
+    var donations = [];
+    var campaigns = [];
+    base('PCRF').select({
         // Selecting the first 3 records in Main View:
         maxRecords: 5,
         view: "Main View"
@@ -25,16 +25,16 @@ module.exports = React.createClass({
 
             beneficiaries.push(
               {
-              name: record.get('Name'),
-              stage: record.get('Stage'),
-              description: record.get('Description'),
-              imageUrl: record.get('Photo')[0].url
+                donor_email: record.get('Email'),
+                donation_date: record.get('Donation Date'),
+                first_name: record.get('First Name'),
+                last_name: record.get('Last Name'),
+                donation_campaign: record.get('Donation Campaign')
             }
           )
         });
-        console.log('beneficiaries1',beneficiaries);
         fetchNextPage();
-        this.setState({data: beneficiaries})
+        this.setState({data: donations})
     }.bind(this),
     function done(error) {
         if (error) {
@@ -42,6 +42,35 @@ module.exports = React.createClass({
         }
     });
   },
+
+  base('PCRF').select({
+      // Selecting the first 3 records in Main View:
+      maxRecords: 5,
+      view: "Main View"
+  }).eachPage(function page(records, fetchNextPage) {
+
+      // This function (`page`) will get called for each page of records.
+      records.forEach(function(record) {
+
+          beneficiaries.push(
+            {
+              donor_email: record.get('Email'),
+              donation_date: record.get('Donation Date'),
+              first_name: record.get('First Name'),
+              last_name: record.get('Last Name'),
+              donation_campaign: record.get('Donation Campaign')
+          }
+        )
+      });
+      fetchNextPage();
+      this.setState({data: donations})
+  }.bind(this),
+  function done(error) {
+      if (error) {
+          console.log(error);
+      }
+  });
+},
 
   getInitialState: function() {
     return {data: []};
