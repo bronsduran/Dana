@@ -45,16 +45,16 @@ module.exports = React.createClass({
             <tbody>
               <tr>
                 <td style={tableCellStyle}>
-                  <img src="" style={largePic} />
+                  <img src="/src/assets/Data_Donation_Ave.png" style={largePic} />
                 </td>
                 <td style={tableCellStyle}>
-                  <img src="./src/assets/images/Data_Donations.png" style={largePic} />
+                  <img src="/src/assets/Data_Donations.png" style={largePic} />
                 </td>
                 <td style={tableCellStyle}>
-                  <img src="./src/assets/images/Data_Donor.png" style={largePic} />
+                  <img src="/src/assets/Data_Donor.png" style={largePic} />
                 </td>
                 <td style={tableCellStyle}>
-                  <img src="./src/assets/images/Data_Repeat_Donor.png" style={largePic} />
+                  <img src="/src/assets/Data_Repeat_Donor.png" style={largePic} />
                 </td>
               </tr>
             </tbody>

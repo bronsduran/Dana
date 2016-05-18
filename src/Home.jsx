@@ -5,8 +5,6 @@ import { Button } from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');
 var Navbar = require('./Navbar.jsx');
 var DonorStats = require('./DonorStats.jsx');
-
-
 var leftButtonStyle = {
   display: 'inline',
   marginRight: '30px'
@@ -40,11 +38,10 @@ module.exports = React.createClass({
         <div id="main">
           <DonorStats />
           <br/>
-          <div style={{
+          <div className="center" style={{
             paddingTop: '30px',
             width: 'auto',
-            margin: '0 auto'
-
+            margin: 'auto',
           }}>
             <Button
               style={rightButtonStyle}

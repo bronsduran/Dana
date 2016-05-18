@@ -1,5 +1,5 @@
 var React = require('react');
-import {Col, ButtonToolbar, Button, Checkbox} from 'react-bootstrap'
+import {Col, ButtonToolbar, Button, Checkbox, Thumbnail} from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');
 var ReactDOM = require('react-dom');
 var EmailTemplate = require('./EmailTemplate.jsx');
@@ -36,6 +36,7 @@ module.exports = React.createClass({
           });
 
       return(
+
         <div className="row" >
           <Col xs={12} md={10} >
             <EmailTemplate />
@@ -46,6 +47,7 @@ module.exports = React.createClass({
             </ul>
           </Col>
         </div>
+
 
       );
     }
