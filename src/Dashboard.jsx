@@ -60,25 +60,73 @@ module.exports = React.createClass({
 
   handleSelect(eventKey) {
 
+    var dummyData = {
+          '1': [
+              {
+                name: 'Bronson',
+                stage: 'Stage 1',
+                description: 'Stage Description'
+              },
+              {
+                name: 'Arushi',
+                stage: 'Stage 1',
+                description: 'Stage Description'
+              }
+             ],
+          '2': [
+              {
+                name: 'Nathan',
+                stage: 'Stage 2',
+                description: 'Stage Description'
+              },
+              {
+                name: 'Steph',
+                stage: 'Stage 2',
+                description: 'Stage Description'
+              }
+            ],
+          '3': [
+              {
+                name: 'Belce',
+                stage: 'Stage 3',
+                description: 'Stage Description'
+              },
+              {
+                name: 'Bronson',
+                stage: 'Stage 3',
+                description: 'Stage Description'
+              }
+            ],
+          '4': [
+              {
+                name: 'Arushi',
+                stage: 'Stage 4',
+                description: 'Stage Description'
+              },
+              {
+                name: 'Bronson',
+                stage: 'Stage 4',
+                description: 'Stage Description'
+              }
+            ],
+          };
+
+    ReactDOM.render(<BeneficiaryGrid beneficiaries={dummyData[eventKey]}/>, document.getElementById('BeneficiaryGrid'));
   },
 
+
   render: function() {
-
-    var stage2data = [
-      {name: 'Arushi', stage: 'Stage 2', description: 'Project Funded'},
-      {name: 'Bronson', stage: 'Stage 2', description: 'Project Funded'},
-      {name: 'Nathan', stage: 'Stage 2', description: 'Project Funded'}
-    ]
-
       return(
         <div className="dashboard">
           <Nav bsStyle="tabs" activeKey={1} justified onSelect={this.handleSelect}>
-            <NavItem eventKey={1}> Stage 1 <span className="badge">24</span> </NavItem>
-            <NavItem eventKey={2}> Stage 2 <span className="badge">24</span> </NavItem>
-            <NavItem eventKey={3}> Stage 3 <span className="badge">24</span> </NavItem>
-            <NavItem eventKey={4}> Stage 4 <span className="badge">24</span> </NavItem>
+            <NavItem eventKey={1}> Stage 1 <span className="badge">42</span> </NavItem>
+            <NavItem eventKey={2}> Stage 2 <span className="badge">42</span> </NavItem>
+            <NavItem eventKey={3}> Stage 3 <span className="badge">42</span> </NavItem>
+            <NavItem eventKey={4}> Stage 4 <span className="badge">42</span> </NavItem>
           </Nav>
-          <BeneficiaryGrid beneficiaries={this.state.data}/>
+          <div id="BeneficiaryGrid">
+            <BeneficiaryGrid beneficiaries={this.state.data}/>
+          </div>
   	    </div>
     );
   }
