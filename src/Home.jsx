@@ -1,12 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var EmailTemplate = require('./emailTemplate.jsx');
 var AirtableData = require('./AirtableData.jsx');
 import { Button } from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');
 var Navbar = require('./Navbar.jsx');
 var DonorStats = require('./DonorStats.jsx');
-var Email = require('./Email.jsx');
 
 
 var leftButtonStyle = {
@@ -32,9 +30,6 @@ module.exports = React.createClass({
     ReactDOM.render(<AirtableData iframe='iframe' src="https://airtable.com/embed/shrHQgGYJfY1XScnK?backgroundColor=blue&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" />, document.getElementById('main'));
   },
 
-  handleEmailTemplateOpen() {
-    ReactDOM.render(<Email />, document.getElementById('main'));
-  },
 
 
 	render() {
@@ -65,12 +60,6 @@ module.exports = React.createClass({
             bsSize="large">View All Data
             </Button>
 
-            <Button
-            style={rightButtonStyle}
-            onClick={this.handleEmailTemplateOpen}
-            bsStyle="primary"
-            bsSize="large">Email Template
-            </Button>
           </div>
         </div>
       </div>

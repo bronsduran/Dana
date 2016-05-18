@@ -5,17 +5,6 @@ import { Thumbnail, Button, Modal, Popover, Tooltip, OverlayTrigger } from 'reac
 
 module.exports = React.createClass({
 
-    getInitialState() {
-      return { showModal: false };
-    },
-
-    close() {
-      this.setState({ showModal: false });
-    },
-
-    open() {
-      this.setState({ showModal: true });
-    },
 
     render() {
 
