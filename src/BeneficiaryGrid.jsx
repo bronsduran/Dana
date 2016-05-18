@@ -2,7 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import { Button, Grid, Row, Col } from 'react-bootstrap'
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
-
+var Email = require('./Email.jsx');
 var rightButtonStyle = {
   display: 'inline',
   marginLeft: '30px'
@@ -10,7 +10,9 @@ var rightButtonStyle = {
 };
 module.exports = React.createClass({
 
-
+  handleEmailTemplateOpen() {
+    ReactDOM.render(<Email />, document.getElementById('main'));
+  },
 
   render: function() {
     var rows = [];
@@ -32,6 +34,12 @@ module.exports = React.createClass({
             {rows}
           </Row>
         </Grid>
+        <Button
+          style={rightButtonStyle}
+          onClick={this.handleEmailTemplateOpen}
+          bsStyle="primary"
+          bsSize="large">Update Donors
+        </Button>
       </div>
     );
   }

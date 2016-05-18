@@ -5,12 +5,13 @@ var BeneficiaryGrid = require('./BeneficiaryGrid.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Airtable = require('airtable');
 import { Tabs, Tab, Badge, Button } from 'react-bootstrap';
-var Email = require('./Email.jsx');
+
+
 var rightButtonStyle = {
   display: 'inline',
   marginLeft: '30px'
-
 };
+
 module.exports = React.createClass({
 
 
@@ -56,28 +57,24 @@ module.exports = React.createClass({
     this.loadDataFromAirtable();
   },
 
-  handleEmailTemplateOpen() {
-    ReactDOM.render(<Email />, document.getElementById('main'));
-  },
+
 
   render: function() {
 
-
+    var stage2data = [
+      {name: 'Arushi', stage: 'Stage 2', description: 'Project Funded'},
+      {name: 'Bronson', stage: 'Stage 2', description: 'Project Funded'},
+      {name: 'Nathan', stage: 'Stage 2', description: 'Project Funded'}
+    ]
 
       return(
         <div className="dashboard">
           <Tabs defaultActiveKey={1} justified animation={false} id="noanim-tab-example">
             <Tab eventKey={1} title="Stage 1"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
-            <Tab eventKey={2} title="Stage 2"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
+            <Tab eventKey={2} title="Stage 2"><BeneficiaryGrid beneficiaries={stage2data}/> </Tab>
             <Tab eventKey={3} title="Stage 3"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
             <Tab eventKey={4} title="Stage 4"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
           </Tabs>
-          <Button
-            style={rightButtonStyle}
-            onClick={this.handleEmailTemplateOpen}
-            bsStyle="primary"
-            bsSize="large">Update Donors
-          </Button>
   	    </div>
     );
   }
