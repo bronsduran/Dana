@@ -4,7 +4,8 @@ var Navbar = require('./Navbar.jsx');
 var BeneficiaryGrid = require('./BeneficiaryGrid.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Airtable = require('airtable');
-import { Tabs, Tab, Badge, Button } from 'react-bootstrap';
+import { Tabs, Tab, Badge, Button, Nav, NavItem } from 'react-bootstrap';
+
 
 
 var rightButtonStyle = {
@@ -57,7 +58,9 @@ module.exports = React.createClass({
     this.loadDataFromAirtable();
   },
 
+  handleSelect(eventKey) {
 
+  },
 
   render: function() {
 
@@ -69,12 +72,13 @@ module.exports = React.createClass({
 
       return(
         <div className="dashboard">
-          <Tabs defaultActiveKey={1} justified animation={false} id="noanim-tab-example">
-            <Tab eventKey={1} title="Stage 1"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
-            <Tab eventKey={2} title="Stage 2"><BeneficiaryGrid beneficiaries={stage2data}/> </Tab>
-            <Tab eventKey={3} title="Stage 3"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
-            <Tab eventKey={4} title="Stage 4"><BeneficiaryGrid beneficiaries={this.state.data}/> </Tab>
-          </Tabs>
+          <Nav bsStyle="tabs" activeKey={1} justified onSelect={this.handleSelect}>
+            <NavItem eventKey={1}> Stage 1 <span className="badge">24</span> </NavItem>
+            <NavItem eventKey={2}> Stage 2 <span className="badge">24</span> </NavItem>
+            <NavItem eventKey={3}> Stage 3 <span className="badge">24</span> </NavItem>
+            <NavItem eventKey={4}> Stage 4 <span className="badge">24</span> </NavItem>
+          </Nav>
+          <BeneficiaryGrid beneficiaries={this.state.data}/>
   	    </div>
     );
   }

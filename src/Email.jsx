@@ -1,5 +1,5 @@
 var React = require('react');
-import {Col, ButtonToolbar, Button, Checkbox, Thumbnail} from 'react-bootstrap'
+import {Col, ButtonToolbar, Button, Checkbox, Thumbnail, PageHeader, Panel} from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');
 var ReactDOM = require('react-dom');
 var EmailTemplate = require('./EmailTemplate.jsx');
@@ -27,25 +27,29 @@ module.exports = React.createClass({
     //  console.log('this.props =', this.props);
       donorsData.forEach(function(donor) {
           donors.push(
-            <li>
               <Checkbox inline>
                 {donor}
               </Checkbox>
-            </li>
             );
           });
 
       return(
-
-        <div className="row" >
-          <Col xs={12} md={10} >
-            <EmailTemplate />
-          </Col>
-          <Col xs={12} md={2} >
-            <ul>
+        <div>
+          <div className="row">
+            <Col xs={12} >
+              <PageHeader><small> Email Preview </small></PageHeader>
+            </Col>
+          </div>
+          <div className="row" >
+            <Col xs={12} md={10} >
+              <Panel>
+                <EmailTemplate />
+              </Panel>
+            </Col>
+            <Col xs={12} md={2} >
               <DonorSidebar donors={donors} />
-            </ul>
-          </Col>
+            </Col>
+          </div>
         </div>
 
 

@@ -30,9 +30,7 @@ module.exports = React.createClass({
 
         <div className="donorList">
           <Thumbnail style={style}>
-            <ul>
               {this.props.donors}
-            </ul>
             <Button
               style={leftButtonStyle}
               bsStyle="primary"
