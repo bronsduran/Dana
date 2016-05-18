@@ -2,7 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import { Button, Grid, Row, Col } from 'react-bootstrap'
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
-var Email = require('./Email.jsx');
+
 
 
 module.exports = React.createClass({
