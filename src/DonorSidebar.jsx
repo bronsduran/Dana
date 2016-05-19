@@ -1,6 +1,5 @@
 var React = require('react');
 import {ButtonToolbar, Button, Thumbnail} from 'react-bootstrap'
-var Dashboard = require('./Dashboard.jsx');
 var ReactDOM = require('react-dom');
 
 
