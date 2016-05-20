@@ -7,7 +7,7 @@ import { Jumbotron } from 'react-bootstrap'
 module.exports = React.createClass({
   render: function() {
     var style = {
-      'backgroundImage': 'url(' + './assets/thankYouHeader.jpg' + ')'
+    
     };
     return (
       <Jumbotron style={style}>

@@ -1,5 +1,5 @@
 var React = require('react');
-import {ButtonToolbar, Button, Thumbnail} from 'react-bootstrap'
+import {ButtonToolbar, Button, Thumbnail, Panel, PageHeader} from 'react-bootstrap'
 var ReactDOM = require('react-dom');
 
 
@@ -29,6 +29,7 @@ module.exports = React.createClass({
       return(
 
         <div className="donorList">
+          <PageHeader><small> Donors </small></PageHeader>
           <Thumbnail style={style}>
               {this.props.donors}
             <Button

@@ -37,17 +37,13 @@ module.exports = React.createClass({
         <div>
           <Grid>
             <Row>
-              <Col xs={12} >
+              <Col xs={12} md={9} >
                 <PageHeader><small> Email Preview </small></PageHeader>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={10} >
                 <Panel>
                   <EmailTemplate />
                 </Panel>
               </Col>
-              <Col xs={12} md={2} >
+              <Col xs={12} md={3} >
                 <DonorSidebar donors={donors} />
               </Col>
             </Row>
