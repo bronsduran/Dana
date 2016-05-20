@@ -8,22 +8,16 @@ module.exports = React.createClass({
     var cells = [];
     this.props.stages.forEach(function(stage) {
         cells.push(
-          <Col xs={3}>
             <Thumbnail src={stage.imageUrl} alt="242x200">
               <h5> {stage.name} </h5>
               <h4> {stage.description} </h4>
             </Thumbnail>
-          </Col>
         );
       });
 
     return (
       <div>
-        <Grid>
-          <Row>
-            {cells}
-          </Row>
-        </Grid>
+        {cells}
       </div>
     );
   }
