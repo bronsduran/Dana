@@ -11,12 +11,13 @@ module.exports = React.createClass({
       return (
         <div>
           <Thumbnail src={this.props.img} alt="242x200">
-            <h3>
-              {this.props.name}
-            </h3>
-            <h4>
-              {this.props.stage}
-            </h4>
+            <h5>
+              Campaign Name: {this.props.name}
+            </h5>
+            <h6>
+            <p>Status: {this.props.stage}</p>
+            <p>Amount To Go :{this.props.donation_grand_total}</p>
+            </h6>
           </Thumbnail>
         </div>
       );

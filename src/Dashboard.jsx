@@ -4,7 +4,7 @@ var Navbar = require('./Navbar.jsx');
 var BeneficiaryGrid = require('./BeneficiaryGrid.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Airtable = require('airtable');
-import { Tabs, Tab, Badge, Button } from 'react-bootstrap';
+import { Tabs, Nav, NavItem, Tab, Badge, Button } from 'react-bootstrap';
 var Email = require('./Email.jsx');
 var rightButtonStyle = {
   display: 'inline',
@@ -20,7 +20,7 @@ module.exports = React.createClass({
     var campaigns = {};
     base('PCRF').select({
         // Selecting the first 3 records in Main View:
-        maxRecords: 10,
+        maxRecords: 50,
         view: "Main View"
     }).eachPage(function page(records, fetchNextPage) {
 
@@ -51,7 +51,7 @@ module.exports = React.createClass({
 
   base('PCRF_Campaigns').select({
         // Selecting the first 3 records in Main View:
-        maxRecords: 5,
+        maxRecords: 50,
         view: "Main View"
     }).eachPage(function page(records, fetchNextPage) {
 
@@ -83,6 +83,7 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
+
       "campaigns": [],
       "donors": []
     };
@@ -97,8 +98,34 @@ module.exports = React.createClass({
 
   },
 
+  handleSelect(eventKey) {
+    var keys = Object.keys(this.state.campaigns);
+    console.log("stages");
+
+    var stages = {};
+    for (var i= 0; i <= 4; i++){
+      stages[i] = []
+    }
+    console.log(stages);
+    for (var key in keys){
+      var campaign = this.state.campaigns[keys[key]];
+      var donor = this.state.donors[keys[key]];
+      var stage  = campaign.stage
+      console.log(campaign)
+        stages[stage].push(donor)
+
+
+    }
+    console.log("adding");
+
+    console.log(stages);
+
+
+    ReactDOM.render(<BeneficiaryGrid key={eventKey} donors={this.state.donors} campaigns={this.state.campaigns}/>, document.getElementById('BeneficiaryGrid'));
+  },
+
   handleEmailTemplateOpen() {
-    ReactDOM.render(<Email />, document.getElementById('main'));
+    ReactDOM.render(<Email />, document.getElementById('container'));
   },
 
   render: function() {
@@ -106,12 +133,22 @@ module.exports = React.createClass({
 
       return(
         <div className="dashboard">
+        <Nav bsStyle="tabs" activeKey={1} justified onSelect={this.handleSelect}>
+            <NavItem eventKey={1}> Stage 1 <span className="badge">42</span> </NavItem>
+            <NavItem eventKey={2}> Stage 2 <span className="badge">42</span> </NavItem>
+            <NavItem eventKey={3}> Stage 3 <span className="badge">42</span> </NavItem>
+            <NavItem eventKey={4}> Stage 4 <span className="badge">42</span> </NavItem>
+          </Nav>
+{/*
           <Tabs defaultActiveKey={1} justified animation={false} id="noanim-tab-example">
             <Tab eventKey={1} title="Stage 1"><BeneficiaryGrid donors={this.state.donors} campaigns={this.state.campaigns}/> </Tab>
             <Tab eventKey={2} title="Stage 2"><BeneficiaryGrid donors={this.state.donors} campaigns={this.state.campaigns}/> </Tab>
             <Tab eventKey={3} title="Stage 3"><BeneficiaryGrid donors={this.state.donors} campaigns={this.state.campaigns}/> </Tab>
             <Tab eventKey={4} title="Stage 4"><BeneficiaryGrid donors={this.state.donors} campaigns={this.state.campaigns}/> </Tab>
-          </Tabs>
+          </Tabs>*/}
+          <div id="BeneficiaryGrid">
+            <BeneficiaryGrid donors={this.state.donors} campaigns={this.state.campaigns}/>
+          </div>
           <Button
             style={rightButtonStyle}
             onClick={this.handleEmailTemplateOpen}
