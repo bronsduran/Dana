@@ -27,7 +27,7 @@ module.exports = React.createClass({
     //  console.log('this.props =', this.props);
       donorsData.forEach(function(donor) {
           donors.push(
-              <Checkbox inline>
+              <Checkbox checked inline>
                 {donor}
               </Checkbox>
             );

@@ -35,7 +35,7 @@ module.exports = React.createClass({
             <Button
               style={leftButtonStyle}
               bsStyle="primary"
-              bsSize="large">Send Update
+              bsSize="small">Send Update
             </Button>
           </Thumbnail>
         </div>
