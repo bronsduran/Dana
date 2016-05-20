@@ -1,5 +1,5 @@
 var React = require('react');
-import {Col, ButtonToolbar, Button, Checkbox, Thumbnail, PageHeader, Panel} from 'react-bootstrap'
+import {Grid, Row, Col, ButtonToolbar, Button, Checkbox, Thumbnail, PageHeader, Panel} from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');
 var ReactDOM = require('react-dom');
 var EmailTemplate = require('./EmailTemplate.jsx');
@@ -35,21 +35,23 @@ module.exports = React.createClass({
 
       return(
         <div>
-          <div className="row">
-            <Col xs={12} >
-              <PageHeader><small> Email Preview </small></PageHeader>
-            </Col>
-          </div>
-          <div className="row" >
-            <Col xs={12} md={10} >
-              <Panel>
-                <EmailTemplate />
-              </Panel>
-            </Col>
-            <Col xs={12} md={2} >
-              <DonorSidebar donors={donors} />
-            </Col>
-          </div>
+          <Grid>
+            <Row>
+              <Col xs={12} >
+                <PageHeader><small> Email Preview </small></PageHeader>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={10} >
+                <Panel>
+                  <EmailTemplate />
+                </Panel>
+              </Col>
+              <Col xs={12} md={2} >
+                <DonorSidebar donors={donors} />
+              </Col>
+            </Row>
+          </Grid>
         </div>
 
 

@@ -6,9 +6,13 @@ var Description = require('./emailDescription.jsx');
 var Header = require('./emailHeader.jsx');
 var NextSteps = require('./NextSteps.jsx');
 
+
+var style = {
+  width: 'auto'
+}
+
+
 module.exports = React.createClass({
-
-
 
   render: function() {
 
@@ -21,10 +25,10 @@ module.exports = React.createClass({
 
 
     return (
-      <div className="container text-center">
+      <div className="container text-center" style={style}>
         <Header stages={stages}/>
         <Description  uoi_name="name" uoi_stage="stage"/>
-        <TimeLine stages={stages}/>
+        <TimeLine stages={stages} />
         <NextSteps />
       </div>
     );
