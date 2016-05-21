@@ -107,7 +107,7 @@ module.exports = React.createClass({
   render: function() {
       return(
         <div className="dashboard">
-        <Nav bsStyle="tabs" activeKey={1} justified onSelect={this.handleSelect}>
+        <Nav bsStyle="tabs" defaultActiveKey={1} justified onSelect={this.handleSelect}>
             <NavItem eventKey={1}> Stage 1 <span className="badge">14</span> </NavItem>
             <NavItem eventKey={2}> Stage 2 <span className="badge">11</span> </NavItem>
             <NavItem eventKey={3}> Stage 3 <span className="badge">16</span> </NavItem>

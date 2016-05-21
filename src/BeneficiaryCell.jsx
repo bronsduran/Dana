@@ -10,7 +10,7 @@ module.exports = React.createClass({
 
       return (
         <div>
-          <Thumbnail src={this.props.img} alt="242x200">
+          <Thumbnail src="https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png" alt="242x200">
             <h5>
               Campaign Name: {this.props.name}
             </h5>
