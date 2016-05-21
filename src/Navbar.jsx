@@ -29,12 +29,7 @@ module.exports = React.createClass({
             </Navbar.Brand>
           </Navbar.Header>
 
-          <Nav pullRight>
-            <NavDropdown>
-              <MenuItem>My Profile</MenuItem>
-              <MenuItem>Settings</MenuItem>
-            </NavDropdown>
-          </Nav>
+    
         </Navbar>
       </div>
     );

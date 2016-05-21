@@ -97,7 +97,7 @@ module.exports = React.createClass({
 
   handleSelect(eventKey) {
 
-    ReactDOM.render(<BeneficiaryGrid thing={eventKey} donors={this.state.donors} campaigns={this.state.campaigns}/>, document.getElementById('BeneficiaryGrid'));
+    ReactDOM.render(<BeneficiaryGrid stageKey={eventKey} donors={this.state.donors} campaigns={this.state.campaigns}/>, document.getElementById('BeneficiaryGrid'));
   },
 
   handleEmailTemplateOpen() {
@@ -114,7 +114,7 @@ module.exports = React.createClass({
             <NavItem eventKey={4}> Stage 4 <span className="badge">15</span> </NavItem>
         </Nav>
           <div id="BeneficiaryGrid">
-            <BeneficiaryGrid thing="1" donors={this.state.donors} campaigns={this.state.campaigns}/>
+            <BeneficiaryGrid stageKey="1" donors={this.state.donors} campaigns={this.state.campaigns}/>
           </div>
   	    </div>
     );
