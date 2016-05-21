@@ -33,5 +33,11 @@ module.exports = {
         loader: 'url-loader?limit=8192'
       }
     ]
+   },
+  node: {
+     fs: "empty",
+     net: "empty",
+     tls: "empty",
+     dns: "empty"
   }
 };

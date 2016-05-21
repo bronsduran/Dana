@@ -1,12 +1,6 @@
 var React = require('react');
 import {ButtonToolbar, Button, Thumbnail, Panel, PageHeader} from 'react-bootstrap'
 var ReactDOM = require('react-dom');
-var nodemailer = require('nodemailer');
-var sesTransport = require('nodemailer-ses-transport');
-
-var transporter = nodemailer.createTransporter(sesTransport({
-  ses: ses
-}));
 
 var leftButtonStyle = {
   display: 'inline',
@@ -27,20 +21,6 @@ var style = {
   height: '100vh'
 };
 
-var mailOptions = {
-  from: '"Stephanie Wang" <stephhwangg@gmail.com>', 
-  to: 'steph17@stanford.edu',
-  subject: 'Node Mailer works!',
-  text: 'If you see this, this works.',
-  html: '<b> Hello World </b>'
-};
-
-transporter.sendMail(mailOptions, function (error, info) {
-  if(error) {
-    return console.log(error);
-  }
-  console.log('Message sent: ' + info.response);
-});
 
 module.exports = React.createClass({
 
