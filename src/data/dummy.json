@@ -1,0 +1,48 @@
+https://dana.firebaseio.com/uoi
+
+uoi: {
+id: '', 
+'name': "Mohammad", 
+'home_country': 'Palestine', 
+'age': 6, 
+'treatment' : [1], 
+'current_stage' : 3, 
+'stages': [
+			{'1': date},
+			{'2': date}
+			],
+'amount_raised': 3400, 
+'amount_left': 600
+
+}
+
+
+
+donor : {
+	name:
+	email:
+
+
+
+}
+
+
+
+https://dana.firebaseio.com/treatments
+treatments : {
+	'id': 1 , 
+	'type': 5, 
+	'location': 'India', 
+	'cost': 4000
+} 
+
+
+
+https://dana.firebaseio.com/stages
+{stages : {
+	 '1': 'Transportation to treatment location', 
+	 '2': 'Transported to hospital', 
+	 '3': 'Surgery/Operation', 
+	 '4': 'Recovery',
+	 '5': 'Return to home location'
+}} 

@@ -1,0 +1,16 @@
+[  
+   {  
+      "id":1,
+      "name":"Arushi Jain",
+      "location":"Delhi",
+      "cost":"$10",
+      "description":"Middle school student in India",
+      "donorList":[  
+         "Arushi",
+         "Bronson",
+         "Avarna"
+      ],
+      "emailStatus":"Stage 3",
+      "imageUrl":"NULL"
+   }
+]
