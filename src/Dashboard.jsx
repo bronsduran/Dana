@@ -49,22 +49,23 @@ module.exports = React.createClass({
     });
 
 
-  base('PCRF_Campaigns').select({
+  base('Beneficiaries(Dummy)').select({
         // Selecting the first 3 records in Main View:
-        maxRecords: 55,
+        maxRecords: 400,
         view: "Main View"
     }).eachPage(function page(records, fetchNextPage) {
 
         // This function (`page`) will get called for each page of records.
         records.forEach(function(record) {
           var campaign_name = record.get('Name');
-
             campaigns[campaign_name] =
               {
                 campaign_name: record.get('Name'),
-                donation_grand_total: record.get('Grand Total'),
-                campaign_goal: record.get('Goal'),
-                campaign_stage: record.get('Stage')
+                campaign_condition: record.get('Condition'),
+                campaign_stage: record.get('Stage'),
+                campaign_treatment: record.get('Treatment'),
+                campaign_photo: record.get('Photo')[0].url,
+                campaign_location: record.get('Home Location')
             }
         });
         fetchNextPage();
@@ -84,7 +85,7 @@ module.exports = React.createClass({
     return {
 
       "campaigns": [],
-      "donors": []
+      "donors": [],
     };
   },
 

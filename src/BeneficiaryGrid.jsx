@@ -10,34 +10,47 @@ var rightButtonStyle = {
 
 };
 
+var gridStyle = {
+  clear: 'left'
+};
+
+var rowStyle = {
+  display:'flex',
+  flexWrap: 'wrap'
+}
+
+var stageMap = {
+  1: "Transportation to Treatment Location",
+  2: "Surgery Completed",
+  3: "Recovery Period",
+  4: "Treatment Completed"
+}
 
 module.exports = React.createClass({
 
   handleEmailTemplateOpen() {
-    ReactDOM.render(<Email emailKey={this.props.stageKey}/>, document.getElementById('main'));
+    ReactDOM.render(<Email emailKey={this.props.stageKey} beneficiary={this.props.campaigns}/>, document.getElementById('main'));
   },
 
   render: function() {
-
-    console.log("campaigns",this.props.campaigns);
-    console.log("Key", this.props.thing);
     var rows = [];
     var keys = Object.keys(this.props.campaigns);
     for (var key in keys){
       var campaign = this.props.campaigns[keys[key]];
       var donor = this.props.donors[keys[key]];
-        if (campaign.campaign_stage == this.props.stageKey) {
+      console.log("campaign_stage: ", campaign.campaign_stage);
+      console.log("stage key: ", this.props.stageKey);
+        if (campaign.campaign_stage == stageMap[this.props.stageKey]) {
           rows.push(
             <Col xs={12} md={3}>
               <BeneficiaryCell
                 campaign={campaign}
                 name={campaign.campaign_name}
-                donation_amount={campaign.donation_amount}
-                donation_grand_total={campaign.donation_grand_total}
-                status={campaign.campaign_stage}
-                img={campaign.imageUrl}
-                campaign_goal={campaign.campaign_goal}
                 stage={campaign.campaign_stage}
+                img={campaign.campaign_photo}
+                treatment={campaign.campaign_treatment}
+                condition={campaign.campaign_condition}
+                location={campaign.campaign_location}
                 />
             </Col>
         );
@@ -49,13 +62,11 @@ module.exports = React.createClass({
         paddingTop: '10px'
 
       }}>
-        <Clearfix>
-          <Grid>
-            <Row>
+          <Grid className="container-fluid" style={gridStyle}>
+            <Row style={rowStyle}>
               {rows}
             </Row>
           </Grid>
-        </Clearfix>
           <Button
             style={rightButtonStyle}
             onClick={this.handleEmailTemplateOpen}
