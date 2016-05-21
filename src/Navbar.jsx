@@ -22,7 +22,6 @@ module.exports = React.createClass({
     return (
       <div>
         <Navbar>
-            <MenuItem> Add Program</MenuItem>
 
           <Navbar.Header>
             <Navbar.Brand>

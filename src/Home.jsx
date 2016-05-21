@@ -18,10 +18,7 @@ var rightButtonStyle = {
 
 };
 
-
 module.exports = React.createClass({
-
-
 
 	handleDashboardOpen() {
     ReactDOM.render(<Dashboard pollInterval={3000}/>, document.getElementById('main'));

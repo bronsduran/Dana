@@ -7,13 +7,10 @@ import { Jumbotron } from 'react-bootstrap'
 module.exports = React.createClass({
   render: function() {
     var style = {
-    
+      backgroundImage: 'url(' + '/src/assets/PCRF_Logo.jpg' + ')',
     };
     return (
       <Jumbotron style={style}>
-        <h1>
-          Your beneficary is now a the next stage!
-        </h1>
 
       </Jumbotron>
     )
