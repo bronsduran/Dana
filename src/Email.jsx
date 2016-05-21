@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var React = require('react');
 import {Grid, Row, Col, ButtonToolbar, Button, Checkbox, Thumbnail, PageHeader, Panel} from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');

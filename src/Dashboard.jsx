@@ -128,60 +128,6 @@ module.exports = React.createClass({
     ReactDOM.render(<Email />, document.getElementById('container'));
   },
 
-    var dummyData = {
-          '1': [
-              {
-                name: 'Bronson',
-                stage: 'Stage 1',
-                description: 'Stage Description'
-              },
-              {
-                name: 'Arushi',
-                stage: 'Stage 1',
-                description: 'Stage Description'
-              }
-             ],
-          '2': [
-              {
-                name: 'Nathan',
-                stage: 'Stage 2',
-                description: 'Stage Description'
-              },
-              {
-                name: 'Steph',
-                stage: 'Stage 2',
-                description: 'Stage Description'
-              }
-            ],
-          '3': [
-              {
-                name: 'Belce',
-                stage: 'Stage 3',
-                description: 'Stage Description'
-              },
-              {
-                name: 'Bronson',
-                stage: 'Stage 3',
-                description: 'Stage Description'
-              }
-            ],
-          '4': [
-              {
-                name: 'Arushi',
-                stage: 'Stage 4',
-                description: 'Stage Description'
-              },
-              {
-                name: 'Bronson',
-                stage: 'Stage 4',
-                description: 'Stage Description'
-              }
-            ],
-          };
-
-    ReactDOM.render(<BeneficiaryGrid beneficiaries={dummyData[eventKey]}/>, document.getElementById('BeneficiaryGrid'));
-  },
-
   render: function() {
       return(
         <div className="dashboard">
