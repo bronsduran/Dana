@@ -21,29 +21,17 @@ module.exports = React.createClass({
   },
 
   render: function() {
+
+    console.log("campaigns",this.props.campaigns);
+    console.log("Key", this.props.thing);
     var rows = [];
     var keys = Object.keys(this.props.campaigns);
     for (var key in keys){
       var campaign = this.props.campaigns[keys[key]];
       var donor = this.props.donors[keys[key]];
-        if ((rows.length + 1) % 4 == 0){
-          rows.push(
-            <div className="row">
-            <Col xs={12} md={3}>
-              <BeneficiaryCell style={cellStyling}
-                campaign={campaign}
-                name={campaign.campaign_name}
-                donation_amount={campaign.donation_amount}
-                donation_grand_total={campaign.donation_grand_total}
-                status={campaign.campaign_status}
-                img={campaign.imageUrl}
-                campaign_goal={campaign.campaign_goal}
-                stage={Math.floor((Math.random() * 4) + 1)}
-                />
-          </Col>
-          </div>
-        );
-        } else {
+        if (campaign.campaign_stage == this.props.thing) {
+          console.log("campaign stage", campaign.campaign_stage);
+          console.log("thing ", this.props.thing);
           rows.push(
             <Col xs={12} md={3}>
               <BeneficiaryCell style={cellStyling}
@@ -51,14 +39,14 @@ module.exports = React.createClass({
                 name={campaign.campaign_name}
                 donation_amount={campaign.donation_amount}
                 donation_grand_total={campaign.donation_grand_total}
-                status={campaign.campaign_status}
+                status={campaign.campaign_stage}
                 img={campaign.imageUrl}
                 campaign_goal={campaign.campaign_goal}
-                stage={Math.floor((Math.random() * 4) + 1)}
+                stage={campaign.campaign_stage}
                 />
             </Col>
-          )
-        }
+        );
+      }
     }
 
     return (

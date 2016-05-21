@@ -51,7 +51,7 @@ module.exports = React.createClass({
 
   base('PCRF_Campaigns').select({
         // Selecting the first 3 records in Main View:
-        maxRecords: 50,
+        maxRecords: 55,
         view: "Main View"
     }).eachPage(function page(records, fetchNextPage) {
 
@@ -65,7 +65,8 @@ module.exports = React.createClass({
                 donation_amount: record.get('Donation Date'),
                 donation_grand_total: record.get('Grand Total'),
                 campaign_goal: record.get('Goal'),
-                campaign_status: record.get('Status')
+                campaign_status: record.get('Status'),
+                campaign_stage: record.get('Stage')
             }
         });
         fetchNextPage();
@@ -97,24 +98,8 @@ module.exports = React.createClass({
   },
 
   handleSelect(eventKey) {
-    var keys = Object.keys(this.state.campaigns);
-    console.log("keys ", keys);
-    console.log("stages");
 
-    var stages = {};
-    for (var i= 0; i <= 4; i++){
-      stages[i] = []
-    }
-    for (var key in keys){
-      var campaign = this.state.campaigns[keys[key]];
-      var donor = this.state.donors[keys[key]];
-      var stage  = campaign.stage
-        stages[stage].push(donor)
-
-
-    }
-
-    ReactDOM.render(<BeneficiaryGrid key={eventKey} donors={this.state.donors} campaigns={this.state.campaigns}/>, document.getElementById('BeneficiaryGrid'));
+    ReactDOM.render(<BeneficiaryGrid thing={eventKey} donors={this.state.donors} campaigns={this.state.campaigns}/>, document.getElementById('BeneficiaryGrid'));
   },
 
   handleEmailTemplateOpen() {
@@ -131,7 +116,7 @@ module.exports = React.createClass({
             <NavItem eventKey={4}> Stage 4 <span className="badge">42</span> </NavItem>
         </Nav>
           <div id="BeneficiaryGrid">
-            <BeneficiaryGrid donors={this.state.donors} campaigns={this.state.campaigns}/>
+            <BeneficiaryGrid thing="1" donors={this.state.donors} campaigns={this.state.campaigns}/>
           </div>
   	    </div>
     );
