@@ -23,11 +23,9 @@ module.exports = React.createClass({
   render: function() {
     var rows = [];
     var keys = Object.keys(this.props.campaigns);
-    console.log("KEYS", keys)
     for (var key in keys){
       var campaign = this.props.campaigns[keys[key]];
       var donor = this.props.donors[keys[key]];
-      console.log(key)
         if ((rows.length + 1) % 4 == 0){
           rows.push(
             <div className="row">

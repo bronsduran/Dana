@@ -94,32 +94,25 @@ module.exports = React.createClass({
     console.log("loadDataFromAirtable")
 
     this.loadDataFromAirtable();
-    console.log(this.state)
-
   },
 
   handleSelect(eventKey) {
     var keys = Object.keys(this.state.campaigns);
+    console.log("keys ", keys);
     console.log("stages");
 
     var stages = {};
     for (var i= 0; i <= 4; i++){
       stages[i] = []
     }
-    console.log(stages);
     for (var key in keys){
       var campaign = this.state.campaigns[keys[key]];
       var donor = this.state.donors[keys[key]];
       var stage  = campaign.stage
-      console.log(campaign)
         stages[stage].push(donor)
 
 
     }
-    console.log("adding");
-
-    console.log(stages);
-
 
     ReactDOM.render(<BeneficiaryGrid key={eventKey} donors={this.state.donors} campaigns={this.state.campaigns}/>, document.getElementById('BeneficiaryGrid'));
   },
@@ -140,12 +133,6 @@ module.exports = React.createClass({
           <div id="BeneficiaryGrid">
             <BeneficiaryGrid donors={this.state.donors} campaigns={this.state.campaigns}/>
           </div>
-          <Button
-            style={rightButtonStyle}
-            onClick={this.handleEmailTemplateOpen}
-            bsStyle="primary"
-            bsSize="large">Update Donors
-          </Button>
   	    </div>
     );
   }
