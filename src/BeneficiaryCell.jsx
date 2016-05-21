@@ -2,7 +2,9 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import { Thumbnail, Button, Modal, Popover, Tooltip, OverlayTrigger } from 'react-bootstrap'
 
-
+var style = {
+  height: '250px'
+}
 module.exports = React.createClass({
 
 
@@ -10,7 +12,7 @@ module.exports = React.createClass({
 
       return (
         <div>
-          <Thumbnail src="https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png" alt="242x200">
+          <Thumbnail src="https://dl.airtable.com/4SuqFLRCSrqAkkw8d6lm_stageOneImage.png" alt="242x200" style={style}>
             <h5>
               Campaign Name: {this.props.name}
             </h5>

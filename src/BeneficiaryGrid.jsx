@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-import { Button, Grid, Row, Col } from 'react-bootstrap'
+import { Button, Grid, Row, Col, Clearfix } from 'react-bootstrap'
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
 var Email = require('./Email.jsx');
 
@@ -10,14 +10,11 @@ var rightButtonStyle = {
 
 };
 
-var cellStyling = {
-  height: '200px !important'
-};
 
 module.exports = React.createClass({
 
   handleEmailTemplateOpen() {
-    ReactDOM.render(<Email emailKey={this.props.thing}/>, document.getElementById('main'));
+    ReactDOM.render(<Email emailKey={this.props.stageKey}/>, document.getElementById('main'));
   },
 
   render: function() {
@@ -29,12 +26,10 @@ module.exports = React.createClass({
     for (var key in keys){
       var campaign = this.props.campaigns[keys[key]];
       var donor = this.props.donors[keys[key]];
-        if (campaign.campaign_stage == this.props.thing) {
-          console.log("campaign stage", campaign.campaign_stage);
-          console.log("thing ", this.props.thing);
+        if (campaign.campaign_stage == this.props.stageKey) {
           rows.push(
             <Col xs={12} md={3}>
-              <BeneficiaryCell style={cellStyling}
+              <BeneficiaryCell
                 campaign={campaign}
                 name={campaign.campaign_name}
                 donation_amount={campaign.donation_amount}
@@ -54,17 +49,19 @@ module.exports = React.createClass({
         paddingTop: '10px'
 
       }}>
-        <Grid>
-          <Row>
-            {rows}
-          </Row>
-        </Grid>
-        <Button
-          style={rightButtonStyle}
-          onClick={this.handleEmailTemplateOpen}
-          bsStyle="primary"
-          bsSize="large">Update Donors
-        </Button>
+        <Clearfix>
+          <Grid>
+            <Row>
+              {rows}
+            </Row>
+          </Grid>
+        </Clearfix>
+          <Button
+            style={rightButtonStyle}
+            onClick={this.handleEmailTemplateOpen}
+            bsStyle="primary"
+            bsSize="large">Update Donors
+          </Button>
       </div>
     );
   }
