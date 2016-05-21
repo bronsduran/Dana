@@ -10,7 +10,9 @@ var NextSteps = require('./NextSteps.jsx');
 var style = {
   width: 'auto'
 }
-
+var descriptionStyle = {
+  textAlign: 'left'
+}
 
 module.exports = React.createClass({
 
@@ -25,9 +27,9 @@ module.exports = React.createClass({
 
 
     return (
-      <div className="container text-center" style={style}>
+      <div className="container" style={style}>
         <Header stages={stages}/>
-        <Description  uoi_name="name" uoi_stage="stage"/>
+        <Description  uoi_name="name" uoi_stage="stage" style={descriptionStyle} emailKey={this.props.emailKey}/>
         <TimeLine stages={stages} />
         <NextSteps />
       </div>

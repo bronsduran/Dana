@@ -5,6 +5,8 @@ import { Button } from 'react-bootstrap'
 var Dashboard = require('./Dashboard.jsx');
 var Navbar = require('./Navbar.jsx');
 var DonorStats = require('./DonorStats.jsx');
+
+
 var leftButtonStyle = {
   display: 'inline',
   marginRight: '30px'
@@ -45,13 +47,13 @@ module.exports = React.createClass({
               <Button
                 style={leftButtonStyle}
                 onClick={this.handleDashboardOpen}
-                bsStyle="success"
+                bsStyle="primary"
                 bsSize="large">Enter Dashboard
               </Button>
               <Button
                 style={rightButtonStyle}
                 onClick={this.handleAirtableOpen}
-                bsStyle="success"
+                bsStyle="primary"
                 bsSize="large">View Data
               </Button>
             </div>

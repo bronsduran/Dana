@@ -32,7 +32,7 @@ module.exports = React.createClass({
               </Checkbox>
             );
           });
-
+      console.log("emailKey", this.props.emailKey);
       return(
         <div>
           <Grid>
@@ -40,7 +40,7 @@ module.exports = React.createClass({
               <Col xs={12} md={9} >
                 <PageHeader><small> Email Preview </small></PageHeader>
                 <Panel>
-                  <EmailTemplate />
+                  <EmailTemplate emailKey={this.props.emailKey} />
                 </Panel>
               </Col>
               <Col xs={12} md={3} >

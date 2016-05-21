@@ -62,10 +62,8 @@ module.exports = React.createClass({
             campaigns[campaign_name] =
               {
                 campaign_name: record.get('Name'),
-                donation_amount: record.get('Donation Date'),
                 donation_grand_total: record.get('Grand Total'),
                 campaign_goal: record.get('Goal'),
-                campaign_status: record.get('Status'),
                 campaign_stage: record.get('Stage')
             }
         });
@@ -110,10 +108,10 @@ module.exports = React.createClass({
       return(
         <div className="dashboard">
         <Nav bsStyle="tabs" activeKey={1} justified onSelect={this.handleSelect}>
-            <NavItem eventKey={1}> Stage 1 <span className="badge">42</span> </NavItem>
-            <NavItem eventKey={2}> Stage 2 <span className="badge">42</span> </NavItem>
-            <NavItem eventKey={3}> Stage 3 <span className="badge">42</span> </NavItem>
-            <NavItem eventKey={4}> Stage 4 <span className="badge">42</span> </NavItem>
+            <NavItem eventKey={1}> Stage 1 <span className="badge">14</span> </NavItem>
+            <NavItem eventKey={2}> Stage 2 <span className="badge">11</span> </NavItem>
+            <NavItem eventKey={3}> Stage 3 <span className="badge">16</span> </NavItem>
+            <NavItem eventKey={4}> Stage 4 <span className="badge">15</span> </NavItem>
         </Nav>
           <div id="BeneficiaryGrid">
             <BeneficiaryGrid thing="1" donors={this.state.donors} campaigns={this.state.campaigns}/>

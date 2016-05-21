@@ -17,7 +17,7 @@ var cellStyling = {
 module.exports = React.createClass({
 
   handleEmailTemplateOpen() {
-    ReactDOM.render(<Email />, document.getElementById('main'));
+    ReactDOM.render(<Email emailKey={this.props.thing}/>, document.getElementById('main'));
   },
 
   render: function() {
