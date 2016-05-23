@@ -1,14 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import { Button, Grid, Row, Col, Clearfix } from 'react-bootstrap'
+import { AutoAffix } from 'react-overlays'
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
 var Email = require('./Email.jsx');
-
-var rightButtonStyle = {
-  display: 'inline',
-  marginLeft: '30px'
-
-};
 
 var gridStyle = {
   clear: 'left'
@@ -57,22 +52,33 @@ module.exports = React.createClass({
       }
     }
 
+
     return (
       <div style={{
         paddingTop: '10px'
 
       }}>
-          <Grid className="container-fluid" style={gridStyle}>
-            <Row style={rowStyle}>
-              {rows}
+          <Grid>
+            <Row>
+              <Col xs={12} md={10}>
+                <Grid className="container-fluid" style={gridStyle}>
+                  <Row style={rowStyle}>
+                    {rows}
+                  </Row>
+                </Grid>
+              </Col>
+              <Col xs={12} md={2}>
+                <AutoAffix OffsetBottom={15} container={this}>
+                  <Button
+                    onClick={this.handleEmailTemplateOpen}
+                    bsStyle="primary"
+                    bsSize="large">Update Donors
+                  </Button>
+                </AutoAffix>
+              </Col>
             </Row>
           </Grid>
-          <Button
-            style={rightButtonStyle}
-            onClick={this.handleEmailTemplateOpen}
-            bsStyle="primary"
-            bsSize="large">Update Donors
-          </Button>
+
       </div>
     );
   }
