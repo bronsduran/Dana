@@ -5,17 +5,11 @@ import { Button, Grid, Row, Col, PageHeader } from 'react-bootstrap'
 var Navbar = require('./Navbar.jsx');
 var ProgramCell = require('./programCell.jsx');
 
-
-var leftButtonStyle = {
-  display: 'inline',
-  marginRight: '30px'
+var addProgramButtonSytle = {
+  float: 'right',
+  borderRadius: '100'
 };
 
-var rightButtonStyle = {
-  display: 'inline',
-  marginLeft: '30px'
-
-};
 
 var gridStyle = {
   clear: 'left'
@@ -45,7 +39,9 @@ module.exports = React.createClass({
 
     programData.forEach(function(program) {
         programs.push(
+          <Col xs={12} md={6} >
             <ProgramCell program={program}/>
+          </Col>
           );
         });
 
@@ -54,7 +50,12 @@ module.exports = React.createClass({
         <Navbar />
         <div id="main">
           <Grid className="container-fluid" style={gridStyle}>
-          <PageHeader><small> Programs </small></PageHeader>
+          <PageHeader>
+            <small> Programs </small>
+              <Button style={addProgramButtonSytle} bsStyle="primary">
+                +
+              </Button>
+          </PageHeader>
             <Row style={rowStyle}>
               {programs}
             </Row>

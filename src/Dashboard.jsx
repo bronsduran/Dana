@@ -120,11 +120,11 @@ module.exports = React.createClass({
       return(
         <div className="dashboard">
         <PageHeader><small> Treatment Abroad </small></PageHeader>
-        <Nav bsStyle="tabs" defaultActiveKey={1} justified onSelect={this.handleSelect}>
-            <NavItem eventKey={1}> Stage 1 <span className="badge">{stageCounts["Transportation to Treatment Location"]}</span> </NavItem>
-            <NavItem eventKey={2}> Stage 2 <span className="badge">{stageCounts["Surgery Completed"]}</span> </NavItem>
-            <NavItem eventKey={3}> Stage 3 <span className="badge">{stageCounts["Recovery Period"]}</span> </NavItem>
-            <NavItem eventKey={4}> Stage 4 <span className="badge">{stageCounts["Treatment Completed"]}</span> </NavItem>
+        <Nav bsStyle="tabs" ActiveKey={1} justified onSelect={this.handleSelect}>
+            <NavItem eventKey={1}> Transportation to Treatment Location <span className="badge">{stageCounts["Transportation to Treatment Location"]}</span> </NavItem>
+            <NavItem eventKey={2}> Surgery Completed <span className="badge">{stageCounts["Surgery Completed"]}</span> </NavItem>
+            <NavItem eventKey={3}> Recovery Period <span className="badge">{stageCounts["Recovery Period"]}</span> </NavItem>
+            <NavItem eventKey={4}> Treatment Completed <span className="badge">{stageCounts["Treatment Completed"]}</span> </NavItem>
         </Nav>
           <div id="BeneficiaryGrid">
             <BeneficiaryGrid stageKey="1" donors={this.state.donors} campaigns={this.state.campaigns}/>
