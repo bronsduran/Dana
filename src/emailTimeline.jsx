@@ -6,7 +6,8 @@ var style = {
   width: '100%',
   display: 'inline-block',
   height: '200px',
-  float: 'bottom'
+  float: 'bottom',
+  padding: '20px'
 };
 var timelineStyle = {
   textAlign: 'center',

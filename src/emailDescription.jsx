@@ -25,27 +25,27 @@ module.exports = React.createClass({
     contentObj[0] = "Hello [donor_first_name], \n\nYour donation to PCRF has helped change [campaign_name]’s life. \n\n[campaign_name] is [age] years old and from [home_location]. [campaign_name] has a condition of [campaign_condition]." +
          " We only hope to correct this problem is surgery at an advanced children’s hospital outside of [treatment_location]. The PCRF has arranged a treatment for the beneficiary's treatment in [treatment_location]. \n\n"  +
          " [campaign_name] is now preparing to travel to [treatment location] with [campaign_name]’s [family_member]. Once reached the destination, they will be hosted by our [hosting_chapter] chapter until the operation. \n\n[campaign_name] has a long journey ahead, but is surrounded by the support of the [hosting_chapter] PCRF community." +
-         " \n\nThank you so much for helping to change [beneficiary name]’s life. [campaign_name] and [campaign_name]’s family will be eternally grateful for your support." +
-         "\n\nThank You, \nPCRF";
+         " \n\nThank you so much for helping to change [campaign_name]’s life. [campaign_name] and [campaign_name]’s family will be eternally grateful for your support." +
+         "\n\nThank You, \nSteve Sosebee \nPresident & CEO \nThe Palestine Children's Relief Fund \nwww.pcrf.net";
 
     contentObj[1] = "Hello [donor_first_name], \n\nDo you remember [campaign_name]?\n\n[campaign_name] is [age] years old and from [home_location]. [campaign_name] has a condition of [campaign_condition]." +
          " [campaign_name]’s condition was, unfortunately, not treatable in [home_location]. Therefore, the PCRF has arranged a treatment in [treatment_location]. \n\n"  +
          " [campaign_name] arrived to [treatment_location] last week, and this week underwent a long and complicated surgery with the help of local doctors, who are specialized in [campaign_treatment]. " +
-         " \n\n[campaign_name] and [campaign_name]’s whole family will be under the care and support of our PCRF [hosting_chapter] Chapter as [campaign_name] receives treatment and undergoes this life-changing surgery.Thank you so much for helping to change [beneficiary name]’s life. [beneficiary name] and [gender] family will be eternally grateful for your support." +
-         "\n\nThank You, \nPCRF";
+         " \n\n[campaign_name] and [campaign_name]’s whole family will be under the care and support of our PCRF [hosting_chapter] Chapter as [campaign_name] receives treatment and undergoes this life-changing surgery.Thank you so much for helping to change [campaign_name]’s life. [campaign_name] and [gender] family will be eternally grateful for your support." +
+         "\n\nThank You, \nSteve Sosebee \nPresident & CEO \nThe Palestine Children's Relief Fund \nwww.pcrf.net";
 
     contentObj[2] = "Hello [donor_first_name], \n\nWe have great news about [campaign_name]! [campaign_name] is [age] years old and from [home_location]. [campaign_name] had a condition of [campaign_condition], which was not treatable in [home_location]" +
      "\n\nThe PCRF has arranged a treatment in [treatment_location]. [campaign_name] arrived to [treatment_location] and underwent a long and complicated [campaign_treatment] operation. [campaign_name] will soon begin an intensive recovery period." +
      "\n\n[campaign_name] will be a guest in [treatment_location] until the end of the recovery period. We wish all the best for [campaign_name], and we will keep you updated about the situation." +
      " \n\nThank you so much for helping. Your contributions are making a significant change in [campaign_name]’s life. " +
-     "\n\nThank You, \nPCRF";
+     "\n\nThank You, \nSteve Sosebee \nPresident & CEO \nThe Palestine Children's Relief Fund \nwww.pcrf.net";
 
 
     contentObj[3]  = "Hello [donor_first_name], \n\nYour donation to PCRF has helped change [campaign_name]’s life. \n\n[campaign_name] is [age] years old and from [home_location]. Recently, with the help of your donation, we sent [campaign_name] to [treatment_location] to receive treatment for [campaign_condition]." +
     	"\n\nThe operation and recovery period were very successful. We thank the doctors the hospital and the local volunteers and community for hosting [campaign_name] while receiving treatment in [treatment_location]. " +
     	"\n\n[campaign_name] is doing well and is now preparing to return to her home in  [home_location] thanks to your generous help. [campaign_name] is grateful for having the chance to receive treatment that [campaign_name] desperately needed. We wish [campaign_name] a happy and healthy life in the future."+
       "\n\n We want to thank our PCRF [hosting_chapter] Chapter and the local community for hosting [campaign_name] and the outpouring of support they have shown."+
-      "\n\nThank You, \nPCRF";
+      "\n\nThank You, \nSteve Sosebee \nPresident & CEO \nThe Palestine Children's Relief Fund \nwww.pcrf.net";
 
 
 
@@ -97,6 +97,8 @@ module.exports = React.createClass({
      text = text.replace(matchText, campaign.family_member);
    } else if (strippedText == "donor_first_name") {
      text = text.replace(matchText, "Sylvia");
+   } else if (strippedText == "gender") {
+    text = text.replace(matchText, campaign.gender);
     }
 
 
@@ -173,7 +175,6 @@ module.exports = React.createClass({
 
     render: function() {
       const {editorState} = this.state;
-      if (this.props.emailKey == 1 ) {
         return (
           <div style={style}>
           <Button style={ButtonStyle}
@@ -185,57 +186,5 @@ module.exports = React.createClass({
           </Editor>
           </div>
         );
-     }
-     else if (this.props.emailKey == 2) {
-      return (
-        <div>
-          <p>
-            Dear [donor name],
-          </p>
-            Do you remember [beneficiary name]? [beneficiary name] is [age] years old and from [home location]. [beneficiary name] has a condition of [condition name].  [“His”/”Her”] [condition] condition was unfortunately not treatable in [home location]. So, the PCRF has arranged a treatment in [treatment location].
-          <p>
-            [“He”/”She”] arrived to [treatment location] last week and this week [“he”/”she”] underwent a long and complicated [surgery/treatment] surgery.
-          </p>
-          <p>
-            [beneficiary name] and [“her”/”his”] [family member] will be under the care and support of our PCRF [hosting chapter] Chapter over the next [treatment length] as [“he”/”she”] receives treatment and undergoes this life changing surgery.
-          </p>
-        </div>
-      );
-    }
-    else if (this.props.emailKey == 3) {
-     return (
-       <div>
-         <p>
-           Dear [donor name],
-         </p>
-           We have great news about [beneficiary name]! [“He”/”She”] is [age] years old and from [home location]. [beneficiary name] had a condition of [condition name]. [“He”/”She”] was diagnosed with [condition] that unfortunately was not treatable in [home location]. The PCRF arranged a treatment at [hospital name]. He arrived to [treatment location] and underwent a long and complicated [surgery/treatment] surgery.
-         <p>
-           [beneficiary name] will soon begin an intensive recovery period, which will [recovery details].
-         </p>
-         <p>
-           [“He”/”She”] will be a guest in [treatment location] for next [treatment length] while [“he”/”she”] continues to receive treatment. We wish all the best for [beneficiary name], and we will keep you updated about the situation. Thank you so much for helping [beneficiary name]. Your contributions are making a significant change in [“his”/”her”] life.
-         </p>
-       </div>
-     );
-   }
-   else if (this.props.emailKey == 4) {
-    return (
-      <div>
-        <p>
-          Dear [donor name],
-        </p>
-          Your donation to PCRF has helped change [beneficiary name]’s life. [beneficiary name] is [age] years old and from [home location]. [beneficiary name] had a condition of [condition name].  Recently, with the help of your donations, we sent [beneficiary name] to [treatment location.]
-        <p>
-          The operation and recovery period were very successful. We thank the doctors the hospital and the local volunteers and community for hosting [beneficiary name] and caring for [“him”/”her”] while receiving treatment in [treatment location].
-        </p>
-        <p>
-          [beneficiary name] is doing well and is now preparing to return to her home in [home location] thanks to your generous help. [beneficiary name] is grateful for having the chance to receive treatment [“he”/”she”] desperately needed. We wish [beneficiary name] a happy and healthy life in the future.
-        </p>
-        <p>
-          We want to thank our PCRF [hosting chapter] Chapter and the local community for hosting [beneficiary name] and the outpouring of support they have shown.
-        </p>
-      </div>
-    );
-  }
   }
 });

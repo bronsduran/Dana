@@ -85,6 +85,7 @@ module.exports = React.createClass({
                 home_location: record.get('Home Location'),
                 treatment_location: record.get('Treatment Location'),
                 age: record.get('Age'),
+                gender: record.get('gender'),
                 hosting_chapter: record.get('Hosting Chapter'),
                 family_member: record.get('Family Member'),
                 donor_list: record.get('Donors(Dummy)'),
