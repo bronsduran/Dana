@@ -1,34 +1,50 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-
+import {Editor, EditorState} from 'draft-js';
 
 module.exports = React.createClass({
 
+  getInitialState : function(){
+    return ({editorState: EditorState.createEmpty()});
+  },
+  onChange : function(editorState){
+    this.setState({editorState});
+  },
 
     render: function() {
+      const {editorState} = this.state;
       console.log("thing", this.props.emailKey);
       if (this.props.emailKey == 1 ) {
         return (
-          <div>
-            <p>
-              Dear [donor name],
-            </p>
-            <p>
-            Your donation to PCRF has helped change [beneficiary name]’s life. [beneficiary name] is [age] years old and from [home location]. [beneficiary name] has a condition of [condition name].
-            </p>
-            <p>
-              [“Her”/”His”] only hope to correct this problem is surgery at an advanced children’s hospital outside of [home country]. The PCRF has arranged a treatment for [“her”/”him”] treatment in [treatment location], where [“he”/”she”] will be [treatment details].
-            </p>
-            <p>
-              [“Her”/”His”] only hope to correct this problem is surgery at an advanced children’s hospital outside of [home country]. The PCRF has arranged a treatment for [“her”/”him”] treatment in [treatment location], where [“he”/”she”] will be [treatment details].
-            </p>
-            <p>
-              [beneficiary name] is now preparing to travel to [treatment location] with [“his”/”her”] [family member]. Once reached the destination, [“they”] will be hosted by our [hosting chapter] chapter until the operation. [beneficiary name] has a long journey ahead, but is surrounded by the support of the [hosting chapter] PCRF community.
-            </p>
-            <p>
-              Thank you so much for helping to change [beneficiary name]’s life. [beneficiary name] and [“his”/”her”] family will be eternally grateful for your support.
-            </p>
-          </div>
+
+          <Editor editorState={editorState} onChange={this.onChange} >
+          <p>
+            Dear [donor name],
+          </p>
+          </Editor>
+          // <div contenteditable="true">
+          //   This text can be edited by the user.
+          // </div>
+          //
+          // <div contenteditable="true">
+
+          // <p>
+          // Your donation to PCRF has helped change [beneficiary name]’s life. [beneficiary name] is [age] years old and from [home location]. [beneficiary name] has a condition of [condition name].
+          // </p>
+          // <p>
+          //   [“Her”/”His”] only hope to correct this problem is surgery at an advanced children’s hospital outside of [home country]. The PCRF has arranged a treatment for [“her”/”him”] treatment in [treatment location], where [“he”/”she”] will be [treatment details].
+          // </p>
+          // <p>
+          //   [“Her”/”His”] only hope to correct this problem is surgery at an advanced children’s hospital outside of [home country]. The PCRF has arranged a treatment for [“her”/”him”] treatment in [treatment location], where [“he”/”she”] will be [treatment details].
+          // </p>
+          // <p>
+          //   [beneficiary name] is now preparing to travel to [treatment location] with [“his”/”her”] [family member]. Once reached the destination, [“they”] will be hosted by our [hosting chapter] chapter until the operation. [beneficiary name] has a long journey ahead, but is surrounded by the support of the [hosting chapter] PCRF community.
+          // </p>
+          // <p>
+          //   Thank you so much for helping to change [beneficiary name]’s life. [beneficiary name] and [“his”/”her”] family will be eternally grateful for your support.
+          // </p></div>
+
+
         );
      }
      else if (this.props.emailKey == 2) {

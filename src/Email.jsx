@@ -21,6 +21,25 @@ module.exports = React.createClass({
 
   render: function() {
 
+    var donorsData = []
+    var keys = Object.keys(this.props.campaigns);
+    var count = 0;
+    for (var key in keys){
+      var campaign = this.props.campaigns[keys[key]];
+      if (campaign.campaign_stage == this.props.stageKey){
+          var donor = this.props.donors[keys[key]];
+          count += 1;
+          console.log('Donor is :')
+          console.log(donor)
+          if (this.props.donors[keys[key]] != undefined){
+            donorsData.push(donor);
+            console.log("pushed donor data")
+        }
+      }
+    }
+    console.log("number of donors in the current campaigns")
+    console.log(count)
+
 
     var donorsData = ['arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu', 'arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu']
     var donors = []

@@ -29,7 +29,7 @@ var stageMap = {
 module.exports = React.createClass({
 
   handleEmailTemplateOpen() {
-    ReactDOM.render(<Email emailKey={this.props.stageKey} beneficiary={this.props.campaigns}/>, document.getElementById('main'));
+    ReactDOM.render(<Email emailKey={this.props.stageKey} campaigns={this.props.campaigns}/>, document.getElementById('main'));
   },
 
   render: function() {
