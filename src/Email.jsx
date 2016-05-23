@@ -21,25 +21,22 @@ module.exports = React.createClass({
 
   render: function() {
 
-    var donorsData = []
+    var variables = [];
+    var donorsData = [];
     var keys = Object.keys(this.props.campaigns);
     var count = 0;
+    var campaign_keys;
     for (var key in keys){
       var campaign = this.props.campaigns[keys[key]];
-      if (campaign.campaign_stage == this.props.stageKey){
-          var donor = this.props.donors[keys[key]];
-          count += 1;
-          console.log('Donor is :')
-          console.log(donor)
-          if (this.props.donors[keys[key]] != undefined){
-            donorsData.push(donor);
-            console.log("pushed donor data")
-        }
-      }
+      campaign_keys = Object.keys(campaign);
     }
-    console.log("number of donors in the current campaigns")
-    console.log(count)
-
+    keys = Object.keys(this.props.donors);
+    var donor_keys;
+    for (var key in keys){
+      var donor = this.props.donors[keys[key]];
+      donor_keys = Object.keys(donor);
+    }
+    var html_variables = [];
 
     var donorsData = ['arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu', 'arushij@stanford.edu', 'bduran@stanford.edu', 'belce@stanford.edu']
     var donors = []
@@ -51,19 +48,42 @@ module.exports = React.createClass({
               </Checkbox>
             );
           });
-      console.log("emailKey", this.props.emailKey);
+
+
+      campaign_keys.forEach(function(key) {
+          html_variables.push(
+              <h6>
+                [{key}]
+              </h6>
+            );
+          });
+
+          donor_keys.forEach(function(key) {
+              html_variables.push(
+                  <h6>
+                    [{key}]
+                  </h6>
+                );
+              });
+
       return(
         <div>
           <Grid>
             <Row>
               <Col xs={12} md={9} >
                 <PageHeader> Email Preview</PageHeader>
-
+                <h5> In the text box below, we have provided a email template based upon the stage of the beneficiaries selected.</h5>
+                <h5> You are currently in <b> Stage {this.props.emailKey} </b></h5>
+                <h5> Any text inside [ ] tags is a  variable that will be rendered based upon the donor who is emailed. </h5>
+                <h5> The following variables are available for insertion in this email: </h5>
+                {html_variables}
                 <Panel>
                   <EmailTemplate emailKey={this.props.emailKey} />
                 </Panel>
               </Col>
-
+              <Col xs={12} md={3} >
+                <DonorSidebar donors={donors} />
+              </Col>
             </Row>
           </Grid>
         </div>

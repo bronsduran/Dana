@@ -2,10 +2,23 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import {Editor, EditorState, ContentState} from 'draft-js';
 
+var style = {
+  "border": "2px solid black",
+  "paddingBottom": "20px",
+};
+
+
+
 module.exports = React.createClass({
 
   getInitialState : function(){
-    return ({editorState: EditorState.createWithContent(ContentState.createFromText("Hi my name is"))});
+    var content = "Hello [donor name], \n\nYour donation to PCRF has helped change [beneficiary name]’s life. \n\n[beneficiary name] is [age] years old and from [home location]. [beneficiary name] has a condition of [condition name]." +
+      " We only hope to correct this problem is surgery at an advanced children’s hospital outside of [home country]. The PCRF has arranged a treatment for the beneficiary's treatment in [treatment location]. \n\n"  +
+      " [beneficiary name] is now preparing to travel to [treatment location] with their family. Once reached the destination, they will be hosted by our [hosting chapter] chapter until the operation. \n\n[beneficiary name] has a long journey ahead, but is surrounded by the support of the [hosting chapter] PCRF community." +
+      " \n\nThank you so much for helping to change [beneficiary name]’s life. [beneficiary name] and [gender] family will be eternally grateful for your support." +
+      "\n\nThank You, \nPCRF";
+
+    return ({editorState: EditorState.createWithContent(ContentState.createFromText(content))});
   },
   onChange : function(editorState){
     this.setState({editorState});
@@ -13,38 +26,12 @@ module.exports = React.createClass({
 
     render: function() {
       const {editorState} = this.state;
-      console.log("thing", this.props.emailKey);
       if (this.props.emailKey == 1 ) {
         return (
-
-          <Editor editorState={editorState} onChange={this.onChange} >
-          <p>
-            Dear [donor name],
-          </p>
+          <div style={style}>
+          <Editor  editorState={editorState} onChange={this.onChange} >
           </Editor>
-          // <div contenteditable="true">
-          //   This text can be edited by the user.
-          // </div>
-          //
-          // <div contenteditable="true">
-
-          // <p>
-          // Your donation to PCRF has helped change [beneficiary name]’s life. [beneficiary name] is [age] years old and from [home location]. [beneficiary name] has a condition of [condition name].
-          // </p>
-          // <p>
-          //   [“Her”/”His”] only hope to correct this problem is surgery at an advanced children’s hospital outside of [home country]. The PCRF has arranged a treatment for [“her”/”him”] treatment in [treatment location], where [“he”/”she”] will be [treatment details].
-          // </p>
-          // <p>
-          //   [“Her”/”His”] only hope to correct this problem is surgery at an advanced children’s hospital outside of [home country]. The PCRF has arranged a treatment for [“her”/”him”] treatment in [treatment location], where [“he”/”she”] will be [treatment details].
-          // </p>
-          // <p>
-          //   [beneficiary name] is now preparing to travel to [treatment location] with [“his”/”her”] [family member]. Once reached the destination, [“they”] will be hosted by our [hosting chapter] chapter until the operation. [beneficiary name] has a long journey ahead, but is surrounded by the support of the [hosting chapter] PCRF community.
-          // </p>
-          // <p>
-          //   Thank you so much for helping to change [beneficiary name]’s life. [beneficiary name] and [“his”/”her”] family will be eternally grateful for your support.
-          // </p></div>
-
-
+          </div>
         );
      }
      else if (this.props.emailKey == 2) {

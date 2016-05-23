@@ -15,13 +15,16 @@ var rightButtonStyle = {
 
 };
 
+var style = {
+  textAlign: "center",
+};
 
 module.exports = React.createClass({
 
   render: function() {
 
       return(
-        <div className="donorStats">
+        <div style={style} className="center-align row donorStats">
           <Button
             style={leftButtonStyle}
             onClick={this.handleModalOpen}

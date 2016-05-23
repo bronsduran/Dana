@@ -29,7 +29,7 @@ var stageMap = {
 module.exports = React.createClass({
 
   handleEmailTemplateOpen() {
-    ReactDOM.render(<Email emailKey={this.props.stageKey} campaigns={this.props.campaigns}/>, document.getElementById('main'));
+    ReactDOM.render(<Email emailKey={this.props.stageKey} campaigns={this.props.campaigns}  donors={this.props.donors}/>, document.getElementById('main'));
   },
 
   render: function() {
@@ -38,8 +38,6 @@ module.exports = React.createClass({
     for (var key in keys){
       var campaign = this.props.campaigns[keys[key]];
       var donor = this.props.donors[keys[key]];
-      console.log("campaign_stage: ", campaign.campaign_stage);
-      console.log("stage key: ", this.props.stageKey);
         if (campaign.campaign_stage == stageMap[this.props.stageKey]) {
           rows.push(
             <Col xs={12} md={3}>
