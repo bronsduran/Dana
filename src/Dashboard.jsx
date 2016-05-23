@@ -4,13 +4,27 @@ var Navbar = require('./Navbar.jsx');
 var BeneficiaryGrid = require('./BeneficiaryGrid.jsx');
 var SearchBar = require('./SearchBar.jsx');
 var Airtable = require('airtable');
-import { Tabs, Tab, Badge, Button, Nav, NavItem } from 'react-bootstrap';
+import { Tabs, Tab, Badge, Button, Nav, NavItem, PageHeader, Grid, Row, Col } from 'react-bootstrap';
 var Email = require('./Email.jsx');
 var rightButtonStyle = {
   display: 'inline',
   marginLeft: '30px'
 };
 
+var stageCounts = {
+  "Transportation to Treatment Location": 0,
+  "Surgery Completed": 0,
+  "Recovery Period": 0,
+  "Treatment Completed": 0
+};
+var gridStyle = {
+  clear: 'left'
+};
+
+var rowStyle = {
+  display:'flex',
+  flexWrap: 'wrap'
+};
 module.exports = React.createClass({
 
 
@@ -57,6 +71,9 @@ module.exports = React.createClass({
 
         // This function (`page`) will get called for each page of records.
         records.forEach(function(record) {
+
+          stageCounts[record.get('Stage')] += 1;
+
           var campaign_name = record.get('Name');
             campaigns[campaign_name] =
               {
@@ -70,6 +87,7 @@ module.exports = React.createClass({
         });
         fetchNextPage();
         this.setState({"campaigns": campaigns});
+        console.log("stageCounts: ", stageCounts);
 
     }.bind(this),
     function done(error) {
@@ -107,17 +125,22 @@ module.exports = React.createClass({
 
   render: function() {
       return(
-        <div className="dashboard">
-        <Nav bsStyle="tabs" defaultActiveKey={1} justified onSelect={this.handleSelect}>
-            <NavItem eventKey={1}> Stage 1 <span className="badge">14</span> </NavItem>
-            <NavItem eventKey={2}> Stage 2 <span className="badge">11</span> </NavItem>
-            <NavItem eventKey={3}> Stage 3 <span className="badge">16</span> </NavItem>
-            <NavItem eventKey={4}> Stage 4 <span className="badge">15</span> </NavItem>
-        </Nav>
-          <div id="BeneficiaryGrid">
-            <BeneficiaryGrid stageKey="1" donors={this.state.donors} campaigns={this.state.campaigns}/>
-          </div>
-  	    </div>
+        <Grid className="container-fluid" style={gridStyle}>
+          <PageHeader>
+            <small> Treatment Abroad </small>
+          </PageHeader>
+          <Row style={rowStyle}>
+            <Nav bsStyle="tabs" ActiveKey={1} justified onSelect={this.handleSelect}>
+                <NavItem eventKey={1}> Transported <span className="badge">{stageCounts["Transportation to Treatment Location"]}</span> </NavItem>
+                <NavItem eventKey={2}> Surgery Completed <span className="badge">{stageCounts["Surgery Completed"]}</span> </NavItem>
+                <NavItem eventKey={3}> Recovery Period <span className="badge">{stageCounts["Recovery Period"]}</span> </NavItem>
+                <NavItem eventKey={4}> Treatment Completed <span className="badge">{stageCounts["Treatment Completed"]}</span> </NavItem>
+            </Nav>
+            <div id="BeneficiaryGrid">
+              <BeneficiaryGrid stageKey="1" donors={this.state.donors} campaigns={this.state.campaigns}/>
+            </div>
+          </Row>
+        </Grid>
     );
   }
 });

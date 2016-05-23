@@ -1,21 +1,23 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var AirtableData = require('./AirtableData.jsx');
-import { Button } from 'react-bootstrap'
-var Dashboard = require('./Dashboard.jsx');
+import { Button, Grid, Row, Col, PageHeader } from 'react-bootstrap'
 var Navbar = require('./Navbar.jsx');
-var DonorStats = require('./DonorStats.jsx');
+var ProgramCell = require('./programCell.jsx');
 
-
-var leftButtonStyle = {
-  display: 'inline',
-  marginRight: '30px'
+var addProgramButtonSytle = {
+  float: 'right',
+  borderRadius: '100'
 };
 
-var rightButtonStyle = {
-  display: 'inline',
-  marginLeft: '30px'
 
+var gridStyle = {
+  clear: 'left'
+};
+
+var rowStyle = {
+  display:'flex',
+  flexWrap: 'wrap'
 };
 
 module.exports = React.createClass({
@@ -29,33 +31,39 @@ module.exports = React.createClass({
 
 	render() {
 
+    var programData = [
+                        {programName: 'Treatment Abroad' , numProjects: '45', programLocation: 'Middle East', averageCostPerProject: 'Unknown', image: 'URL'},
+                        {programName: 'Medical Missions', numProjects: '107' , programLocation: 'Middle East', averageCostPerProject: 'Unknown', image: 'URL'},
+                        {programName: 'Gaza Mental Health Project', numProjects: '55' , programLocation: 'Gaza', averageCostPerProject: 'Unknown', image: 'URL'},
+                        {programName: 'Gaza Educational Initiative', numProjects: '55' , programLocation: 'Gaza', averageCostPerProject: 'Unknown', image: 'URL'},
+                      ]
+    var programs = [];
+
+    programData.forEach(function(program) {
+        programs.push(
+          <Col xs={12} md={6} >
+            <ProgramCell program={program}/>
+          </Col>
+          );
+        });
+
 		return (
       <div className="homepage">
         <Navbar />
         <div id="main">
-          <h1> Welcome back!</h1>
-          <DonorStats />
-            <br/>
-            <div className="center" style={{
-              paddingTop: '30px',
-              width: 'auto',
-              margin: 'auto',
-            }}>
-              <Button
-                style={leftButtonStyle}
-                onClick={this.handleDashboardOpen}
-                bsStyle="primary"
-                bsSize="large">Enter Dashboard
+          <Grid className="container-fluid" style={gridStyle}>
+          <PageHeader>
+            <small> Programs </small>
+              <Button style={addProgramButtonSytle} bsStyle="primary">
+                +
               </Button>
-              <Button
-                style={rightButtonStyle}
-                onClick={this.handleAirtableOpen}
-                bsStyle="primary"
-                bsSize="large">View Data
-              </Button>
-            </div>
-          </div>
-      </div>
+          </PageHeader>
+            <Row style={rowStyle}>
+              {programs}
+            </Row>
+          </Grid>
+        </div>
+    </div>
 
 		)
 	}

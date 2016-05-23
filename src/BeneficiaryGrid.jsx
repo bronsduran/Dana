@@ -1,14 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import { Button, Grid, Row, Col, Clearfix } from 'react-bootstrap'
+import { AutoAffix } from 'react-overlays'
 var BeneficiaryCell = require('./BeneficiaryCell.jsx');
 var Email = require('./Email.jsx');
-
-var rightButtonStyle = {
-  display: 'inline',
-  marginLeft: '30px'
-
-};
 
 var gridStyle = {
   clear: 'left'
@@ -18,6 +13,16 @@ var rowStyle = {
   display:'flex',
   flexWrap: 'wrap'
 }
+var buttonStyle = {
+
+}
+
+var rightButtonStyle = {
+  display: 'inline',
+  marginLeft: '30px'
+
+};
+
 
 var stageMap = {
   1: "Transportation to Treatment Location",
@@ -55,12 +60,13 @@ module.exports = React.createClass({
       }
     }
 
+
     return (
       <div style={{
         paddingTop: '10px'
 
       }}>
-      <Button
+       <Button
         style={rightButtonStyle}
         onClick={this.handleEmailTemplateOpen}
         bsStyle="primary"
