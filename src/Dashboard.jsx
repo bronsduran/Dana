@@ -66,7 +66,7 @@ module.exports = React.createClass({
 
   base('Beneficiaries(Dummy)').select({
         // Selecting the first 3 records in Main View:
-        maxRecords: 100,
+        maxRecords: 20,
         view: "Main View"
     }).eachPage(function page(records, fetchNextPage) {
 
@@ -74,7 +74,6 @@ module.exports = React.createClass({
         records.forEach(function(record) {
 
           stageCounts[record.get('Stage')] += 1;
-
           var campaign_name = record.get('Name');
             campaigns[campaign_name] =
               {
@@ -90,7 +89,6 @@ module.exports = React.createClass({
                 family_member: record.get('Family Member'),
                 donor_list: record.get('Donors(Dummy)'),
             }
-              console.log("donor list:" , record.get('Donors(Dummy)'))
         });
         fetchNextPage();
         this.setState({"campaigns": campaigns});
@@ -114,8 +112,6 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function() {
-    console.log(this.state)
-    console.log("loadDataFromAirtable")
 
     this.loadDataFromAirtable();
   },
@@ -128,6 +124,7 @@ module.exports = React.createClass({
   handleEmailTemplateOpen() {
     ReactDOM.render(<Email />, document.getElementById('container'));
   },
+
 
   render: function() {
       return(

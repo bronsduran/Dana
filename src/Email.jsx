@@ -4,7 +4,7 @@ var Dashboard = require('./Dashboard.jsx');
 var ReactDOM = require('react-dom');
 var EmailTemplate = require('./EmailTemplate.jsx');
 var Navbar = require('./Navbar.jsx');
-var DonorSidebar = require('./DonorSidebar.jsx');
+var DonorTable = require('./DonorTable.jsx');
 var leftButtonStyle = {
   display: 'inline',
   marginRight: '30px'
@@ -69,20 +69,23 @@ module.exports = React.createClass({
       return(
         <div>
           <Grid>
+          <PageHeader> <small> Email Creation </small> </PageHeader>
+          <h5> In the text box below, we have provided a email template based upon the stage of the beneficiaries selected.</h5>
+          <h5> You are currently in <b> Stage {this.props.emailKey} </b></h5>
+          <h5> Any text inside [ ] will be replced with the correct information when the email is sent </h5>
+          <h5> The available replacement options are located below. </h5>
             <Row>
               <Col xs={12} md={9} >
-                <PageHeader> Email Preview</PageHeader>
-                <h5> In the text box below, we have provided a email template based upon the stage of the beneficiaries selected.</h5>
-                <h5> You are currently in <b> Stage {this.props.emailKey} </b></h5>
-                <h5> Any text inside [ ] tags is a  variable that will be rendered based upon the donor who is emailed. </h5>
-                <h5> The following variables are available for insertion in this email: </h5>
-                {html_variables}
+                <PageHeader> <small> Email Template </small> </PageHeader>
                 <Panel>
                   <EmailTemplate emailKey={this.props.emailKey}  campaigns={this.props.campaigns} donors={this.props.donors}/>
                 </Panel>
               </Col>
+
               <Col xs={12} md={3} >
-                <DonorSidebar donors={donors} />
+                  <PageHeader> <small> Variable Options </small> </PageHeader>
+                    {html_variables}
+                  <DonorTable donors={donors} />
               </Col>
             </Row>
           </Grid>

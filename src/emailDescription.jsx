@@ -4,8 +4,9 @@ import {Editor, EditorState, ContentState} from 'draft-js';
 var Airtable = require('airtable');
 
 var style = {
-  "border": "2px solid black",
+  "border": "1px solid light-grey",
   "paddingBottom": "20px",
+  "borderRadius": '10'
 };
 
 
@@ -23,7 +24,9 @@ module.exports = React.createClass({
       {editorState: EditorState.createWithContent(ContentState.createFromText(content))});
   },
   onChange : function(editorState){
-    this.setState({editorState});
+    this.setState({editorState
+
+      });
   },
 
   replaceVariables : function(editorState){
