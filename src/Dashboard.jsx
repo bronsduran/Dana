@@ -65,7 +65,7 @@ module.exports = React.createClass({
 
   base('Beneficiaries(Dummy)').select({
         // Selecting the first 3 records in Main View:
-        maxRecords: 400,
+        maxRecords: 20,
         view: "Main View"
     }).eachPage(function page(records, fetchNextPage) {
 

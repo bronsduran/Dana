@@ -37,6 +37,11 @@ module.exports = React.createClass({
               bsStyle="primary"
               bsSize="small">Send Update
             </Button>
+            <Button
+              style={leftButtonStyle}
+              bsStyle="primary"
+              bsSize="small">Preview Email
+            </Button>
           </Thumbnail>
         </div>
       );

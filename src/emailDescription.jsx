@@ -3,8 +3,9 @@ var ReactDOM = require('react-dom');
 import {Editor, EditorState, ContentState} from 'draft-js';
 
 var style = {
-  "border": "2px solid black",
+  "border": "1px solid light-grey",
   "paddingBottom": "20px",
+  "borderRadius": '10'
 };
 
 

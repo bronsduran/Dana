@@ -1,27 +1,32 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-import {Grid , Row, Col, Thumbnail, Jumbotron } from 'react-bootstrap'
+import {Grid , Row, Col, Thumbnail, Jumbotron, Panel } from 'react-bootstrap'
 
 var style = {
   width: '25%',
-  display: 'inline-block'
+  display: 'inline-block',
+  height: '250px',
+  margin: 'auto',
 };
-
+var timelineStyle = {
+  textAlign: 'center',
+  paddingTop: '10px',
+  paddingBottom: '10px'
+}
 module.exports = React.createClass({
 
   render: function() {
     var cells = [];
     this.props.stages.forEach(function(stage) {
         cells.push(
-          <Thumbnail src={stage.imageUrl} alt="242x200" style={style}>
-            <h5> {stage.name} </h5>
-            <h4> {stage.description} </h4>
-          </Thumbnail>
+          <Panel header={stage.description} style={style}>
+            <p> Test </p>
+          </Panel>
         );
       });
 
     return (
-      <div>
+      <div style={timelineStyle}>
         {cells}
       </div>
     );

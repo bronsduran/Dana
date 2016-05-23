@@ -13,15 +13,11 @@ var rowStyle = {
   display:'flex',
   flexWrap: 'wrap'
 }
-var buttonStyle = {
-
+var ButtonStyle = {
+  display: 'center',
+  marginBottom: '10px',
+  borderRadius: '30'
 }
-
-var rightButtonStyle = {
-  display: 'inline',
-  marginLeft: '30px'
-
-};
 
 
 var stageMap = {
@@ -63,11 +59,11 @@ module.exports = React.createClass({
 
     return (
       <div style={{
-        paddingTop: '10px'
-
+        paddingTop: '10px',
+        textAlign: 'center',
       }}>
        <Button
-        style={rightButtonStyle}
+        style={ButtonStyle}
         onClick={this.handleEmailTemplateOpen}
         bsStyle="primary"
         bsSize="large">Update Donors

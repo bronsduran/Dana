@@ -69,14 +69,15 @@ module.exports = React.createClass({
       return(
         <div>
           <Grid>
+          <h5> In the text box below, we have provided a email template based upon the stage of the beneficiaries selected.</h5>
+          <h5> You are currently in <b> Stage {this.props.emailKey} </b></h5>
+          <h5> Any text inside [ ] tags is a  variable that will be rendered based upon the donor who is emailed. </h5>
+          <h5> The following variables are available for insertion in this email: </h5>
+          {html_variables}
             <Row>
               <Col xs={12} md={9} >
-                <PageHeader> Email Preview</PageHeader>
-                <h5> In the text box below, we have provided a email template based upon the stage of the beneficiaries selected.</h5>
-                <h5> You are currently in <b> Stage {this.props.emailKey} </b></h5>
-                <h5> Any text inside [ ] tags is a  variable that will be rendered based upon the donor who is emailed. </h5>
-                <h5> The following variables are available for insertion in this email: </h5>
-                {html_variables}
+                <PageHeader> <small> Email Template </small> </PageHeader>
+
                 <Panel>
                   <EmailTemplate emailKey={this.props.emailKey} />
                 </Panel>
