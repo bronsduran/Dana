@@ -1,5 +1,5 @@
 var React = require('react');
-import {ButtonToolbar, Button, Thumbnail, Panel, PageHeader} from 'react-bootstrap'
+import {Col, ButtonToolbar, Button, Thumbnail, Panel, PageHeader} from 'react-bootstrap'
 var ReactDOM = require('react-dom');
 
 
@@ -21,9 +21,9 @@ module.exports = React.createClass({
 
         <div className="donorList">
           <PageHeader><small> Donors </small></PageHeader>
-
+            <Col xs={12}>
               {this.props.donors}
-
+            </Col>
             <Button justified
               style={ButtonStyle}
               bsStyle="primary"

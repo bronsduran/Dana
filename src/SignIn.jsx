@@ -49,7 +49,7 @@ module.exports = React.createClass({
         </div>
 
         <div style={style}>
-          <Panel>
+          <Panel header="User Login" bsStyle="primary">
             <p></p>
             <Form horizontal>
               <FormGroup controlId="formHorizontalEmail">
