@@ -49,7 +49,9 @@ module.exports = React.createClass({
       console.log("Bkey", Bkey);
       var Beneficiary = BeneficiariesObject[Bkey];
       console.log("Beneficiary", Beneficiary);
+      if (Beneficiary.campaign_stage == stage) {
 
+      }
     })
 
 
@@ -82,7 +84,7 @@ module.exports = React.createClass({
     //  console.log('this.props =', this.props);
       donorsData.forEach(function(donor) {
           donors.push(
-              <Checkbox checked inline>
+              <Checkbox checked>
                 {donor}
               </Checkbox>
             );

@@ -5,9 +5,7 @@ var Dashboard = require('./Dashboard.jsx');
 
 
 var style = {
-  ':hover': {
-      backgroundColor: 'red'
-    },
+  
 };
 
 
@@ -23,7 +21,7 @@ module.exports = React.createClass({
       );
       return (
         <div onClick={this.handleDashboardOpen} >
-          <Panel header={title} style={style} >
+          <Panel header={title} style={style} bsStyle="primary">
             <p>Number of Beneficiaries: {this.props.program.numProjects}</p>
             <p>Number of Donors: {this.props.program.numDonors}</p>
             <p>Total Donations: {this.props.program.totalDonations}</p>
