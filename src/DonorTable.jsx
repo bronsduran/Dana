@@ -21,7 +21,7 @@ module.exports = React.createClass({
 
         <div className="donorList">
           <PageHeader><small> Donors </small></PageHeader>
-          <Thumbnail style={style}>
+
               {this.props.donors}
             <Button justified
               style={ButtonStyle}
@@ -33,7 +33,7 @@ module.exports = React.createClass({
               bsStyle="primary"
               bsSize="small">Send Email
             </Button>
-          </Thumbnail>
+        
         </div>
       );
     }

@@ -73,7 +73,7 @@ module.exports = React.createClass({
         records.forEach(function(record) {
 
           stageCounts[record.get('Stage')] += 1;
-
+          console.log("donor ids", record.get('Donors(Dummy)'));
           var campaign_name = record.get('Name');
             campaigns[campaign_name] =
               {
@@ -82,8 +82,10 @@ module.exports = React.createClass({
                 campaign_stage: record.get('Stage'),
                 campaign_treatment: record.get('Treatment'),
                 campaign_photo: record.get('Photo')[0].url,
-                campaign_location: record.get('Home Location')
+                campaign_location: record.get('Home Location'),
+                campaigns_donorsIDs: record.get('Donors(Dummy)')
             }
+
         });
         fetchNextPage();
         this.setState({"campaigns": campaigns});
