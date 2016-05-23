@@ -29,7 +29,7 @@ module.exports = React.createClass({
     return (
       <div className="container" style={style}>
         <Header stages={stages}/>
-        <Description  uoi_name="name" uoi_stage="stage" style={descriptionStyle} emailKey={this.props.emailKey}/>
+        <Description  uoi_name="name" uoi_stage="stage" style={descriptionStyle}  campaigns={this.props.campaigns} donors={this.props.donors} emailKey={this.props.emailKey}/>
         <TimeLine stages={stages} />
         <NextSteps />
       </div>

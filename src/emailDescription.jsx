@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import {Editor, EditorState, ContentState} from 'draft-js';
+var Airtable = require('airtable');
 
 var style = {
   "border": "2px solid black",
@@ -18,18 +19,85 @@ module.exports = React.createClass({
       " \n\nThank you so much for helping to change [beneficiary name]’s life. [beneficiary name] and [gender] family will be eternally grateful for your support." +
       "\n\nThank You, \nPCRF";
 
-    return ({editorState: EditorState.createWithContent(ContentState.createFromText(content))});
+    return (
+      {editorState: EditorState.createWithContent(ContentState.createFromText(content))});
   },
   onChange : function(editorState){
     this.setState({editorState});
   },
+
+  replaceVariables : function(editorState){
+    var content = editorState.getCurrentContent();
+  },
+
+  pickRandomProperty: function(obj) {
+      var result;
+      var count = 0;
+      for (var prop in obj)
+          if (Math.random() < 1/++count)
+             result = prop;
+      return result;
+  },
+  commonKeys: function(obj1, obj2) {
+    var keys = [];
+    for(var i in obj1) {
+      if(i in obj2) {
+        keys.push(i);
+      }
+    }
+    return keys;
+  },
+
+  getDonorFromAirtable: function(donor_id) {
+    var base = new Airtable({ apiKey: 'keyJoo0QH6ip5yH4S' }).base('appfroa8YN4yjSWIk');
+    var donor = {};
+    base('Donors(Dummy)').find(donor_id, function(err, record) {
+      if (err) { console.log(err); return; }
+      donor  =
+        {
+          donor_email: record.get('Email'),
+          donation_date: record.get('Donation Date'),
+          donor_first_name: record.get('First Name'),
+          donor_last_name: record.get('Last Name'),
+          campaign_name : record.get('Donation Campaign Name'),
+
+      }
+      console.log(donor)
+    });
+    return donor;
+  },
+
+
+
+  logState : function(){
+    var json = this.state.editorState.toJS();
+    var contents = json.currentContent.blockMap;
+
+    var keys = Object.keys(contents);
+    var string = []
+    for (var key in keys){
+      string.push(contents[keys[key]].text)
+    }
+
+    var campaign_name = this.pickRandomProperty(this.props.campaigns);
+    var donor_list = this.props.campaigns[campaign_name].donor_list;
+    var donor_id = donor_list[0];
+    var donor = this.getDonorFromAirtable(donor_id);
+    //var campaign = this.props.campaigns[campaign_name];
+      console.log(donor)
+
+
+
+
+
+    },
 
     render: function() {
       const {editorState} = this.state;
       if (this.props.emailKey == 1 ) {
         return (
           <div style={style}>
-          <Editor  editorState={editorState} onChange={this.onChange} >
+          <Editor  editorState={editorState} onChange={this.onChange} onFocus={this.logState} >
           </Editor>
           </div>
         );

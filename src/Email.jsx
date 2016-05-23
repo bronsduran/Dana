@@ -78,7 +78,7 @@ module.exports = React.createClass({
                 <h5> The following variables are available for insertion in this email: </h5>
                 {html_variables}
                 <Panel>
-                  <EmailTemplate emailKey={this.props.emailKey} />
+                  <EmailTemplate emailKey={this.props.emailKey}  campaigns={this.props.campaigns} donors={this.props.donors}/>
                 </Panel>
               </Col>
               <Col xs={12} md={3} >

@@ -32,7 +32,7 @@ module.exports = React.createClass({
     var base = new Airtable({ apiKey: 'keyJoo0QH6ip5yH4S' }).base('appfroa8YN4yjSWIk');
     var donors = {};
     var campaigns = {};
-    base('PCRF').select({
+    base('Donors(Dummy)').select({
         // Selecting the first 3 records in Main View:
         maxRecords: 50,
         view: "Main View"
@@ -47,9 +47,10 @@ module.exports = React.createClass({
                 donation_date: record.get('Donation Date'),
                 donor_first_name: record.get('First Name'),
                 donor_last_name: record.get('Last Name'),
-                donation_campaign : record.get('Donation Campaign Name')
+                campaign_name : record.get('Donation Campaign Name'),
 
             }
+
         });
         fetchNextPage();
 
@@ -65,7 +66,7 @@ module.exports = React.createClass({
 
   base('Beneficiaries(Dummy)').select({
         // Selecting the first 3 records in Main View:
-        maxRecords: 400,
+        maxRecords: 100,
         view: "Main View"
     }).eachPage(function page(records, fetchNextPage) {
 
@@ -82,12 +83,17 @@ module.exports = React.createClass({
                 campaign_stage: record.get('Stage'),
                 campaign_treatment: record.get('Treatment'),
                 campaign_photo: record.get('Photo')[0].url,
-                campaign_location: record.get('Home Location')
+                home_location: record.get('Home Location'),
+                treatment_location: record.get('Treatment Location'),
+                age: record.get('Age'),
+                hosting_chapter: record.get('Hosting Chapter'),
+                family_member: record.get('Family Member'),
+                donor_list: record.get('Donors(Dummy)'),
             }
+              console.log("donor list:" , record.get('Donors(Dummy)'))
         });
         fetchNextPage();
         this.setState({"campaigns": campaigns});
-        console.log("stageCounts: ", stageCounts);
 
     }.bind(this),
     function done(error) {
