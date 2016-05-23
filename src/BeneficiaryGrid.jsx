@@ -62,17 +62,17 @@ module.exports = React.createClass({
         paddingTop: '10px'
 
       }}>
+      <Button
+        style={rightButtonStyle}
+        onClick={this.handleEmailTemplateOpen}
+        bsStyle="primary"
+        bsSize="large">Update Donors
+      </Button>
           <Grid className="container-fluid" style={gridStyle}>
             <Row style={rowStyle}>
               {rows}
             </Row>
           </Grid>
-          <Button
-            style={rightButtonStyle}
-            onClick={this.handleEmailTemplateOpen}
-            bsStyle="primary"
-            bsSize="large">Update Donors
-          </Button>
       </div>
     );
   }

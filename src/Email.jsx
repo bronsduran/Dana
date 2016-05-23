@@ -57,14 +57,13 @@ module.exports = React.createClass({
           <Grid>
             <Row>
               <Col xs={12} md={9} >
-                <PageHeader><small> Email Preview </small></PageHeader>
+                <PageHeader> Email Preview</PageHeader>
+
                 <Panel>
                   <EmailTemplate emailKey={this.props.emailKey} />
                 </Panel>
               </Col>
-              <Col xs={12} md={3} >
-                <DonorSidebar donors={donors} />
-              </Col>
+
             </Row>
           </Grid>
         </div>

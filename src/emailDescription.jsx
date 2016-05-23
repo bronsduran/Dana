@@ -1,11 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-import {Editor, EditorState} from 'draft-js';
+import {Editor, EditorState, ContentState} from 'draft-js';
 
 module.exports = React.createClass({
 
   getInitialState : function(){
-    return ({editorState: EditorState.createEmpty()});
+    return ({editorState: EditorState.createWithContent(ContentState.createFromText("Hi my name is"))});
   },
   onChange : function(editorState){
     this.setState({editorState});
