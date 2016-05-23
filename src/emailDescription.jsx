@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import {Editor, EditorState, ContentState} from 'draft-js';
 var Airtable = require('airtable');
+import { Button, Grid, Row, Col, PageHeader } from 'react-bootstrap'
 
 var style = {
   "border": "1px solid light-grey",
@@ -9,6 +10,12 @@ var style = {
   "borderRadius": '10'
 };
 
+var ButtonStyle = {
+  display: 'right',
+  float: 'right',
+  marginBottom: '10px',
+  borderRadius: '30'
+}
 
 
 module.exports = React.createClass({
@@ -47,13 +54,58 @@ module.exports = React.createClass({
       {editorState: EditorState.createWithContent(ContentState.createFromText(contentObj[this.props.emailKey - 1]))});
   },
   onChange : function(editorState){
-    this.setState({editorState
-
-      });
+    this.setState({editorState});
   },
 
   replaceVariables : function(editorState){
-    var content = editorState.getCurrentContent();
+    var patt = /\[([A-z]+)\]/gi;
+    // console.log(stateToHTML(this.state.editorState.getCurrentContent()));
+
+    var campaign_name = this.pickRandomProperty(this.props.campaigns);
+    var campaign = this.props.campaigns[campaign_name];
+
+    var content = this.state.editorState.getCurrentContent();
+    var text = content.getPlainText();
+    //
+    // text = text.split('[').join('{');
+    // text = text.split(']').join('}');
+    var matches = text.match(patt)
+    console.log(matches)
+    for (var match in matches){
+      var matchText = matches[match]
+      console.log(matchText)
+      var strippedText = matchText.replace('[', '').replace(']', '')
+      if (strippedText == "campaign_name"){
+        text = text.replace(matchText, campaign.campaign_name);
+      } else if (strippedText == "campaign_condition") {
+        text = text.replace(matchText, campaign.campaign_condition);
+      } else if (strippedText == "campaign_stage") {
+      text = text.replace(matchText, campaign.campaign_stage);
+      } else if (strippedText == "campaign_treatment") {
+      text = text.replace(matchText, campaign.campaign_treatment);
+      } else if (strippedText == "campaign_photo") {
+      text = text.replace(matchText, campaign.campaign_photo);
+      } else if (strippedText == "home_location") {
+      text = text.replace(matchText, campaign.home_location);
+      } else if (strippedText == "treatment_location") {
+      text = text.replace(matchText, campaign.treatment_location);
+     }  else if (strippedText == "age") {
+     text = text.replace(matchText, campaign.age);
+     }  else if (strippedText == "hosting_chapter") {
+     text = text.replace(matchText, campaign.hosting_chapter);
+    } else if (strippedText == "family_member") {
+     text = text.replace(matchText, campaign.family_member);
+   } else if (strippedText == "donor_first_name") {
+     text = text.replace(matchText, "Sylvia");
+    }
+
+
+    }
+
+    var editorState =  EditorState.createWithContent(ContentState.createFromText(text));
+    this.setState({editorState});
+
+
   },
 
   pickRandomProperty: function(obj) {
@@ -95,6 +147,7 @@ module.exports = React.createClass({
 
 
 
+
   logState : function(){
     var json = this.state.editorState.toJS();
     var contents = json.currentContent.blockMap;
@@ -123,6 +176,11 @@ module.exports = React.createClass({
       if (this.props.emailKey == 1 ) {
         return (
           <div style={style}>
+          <Button style={ButtonStyle}
+            bsStyle="primary"
+            onClick={this.replaceVariables}>
+            Preview Email
+          </Button>
           <Editor  editorState={editorState} onChange={this.onChange} onFocus={this.logState} >
           </Editor>
           </div>

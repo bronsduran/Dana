@@ -23,17 +23,13 @@ module.exports = React.createClass({
           <PageHeader><small> Donors </small></PageHeader>
 
               {this.props.donors}
-            <Button justified
-              style={ButtonStyle}
-              bsStyle="primary"
-              bsSize="small">Preview Email
-            </Button>
+
             <Button justified
               style={ButtonStyle}
               bsStyle="primary"
               bsSize="small">Send Email
             </Button>
-        
+
         </div>
       );
     }
