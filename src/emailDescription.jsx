@@ -14,14 +14,37 @@ var style = {
 module.exports = React.createClass({
 
   getInitialState : function(){
-    var content = "Hello [donor name], \n\nYour donation to PCRF has helped change [beneficiary name]’s life. \n\n[beneficiary name] is [age] years old and from [home location]. [beneficiary name] has a condition of [condition name]." +
-      " We only hope to correct this problem is surgery at an advanced children’s hospital outside of [home country]. The PCRF has arranged a treatment for the beneficiary's treatment in [treatment location]. \n\n"  +
-      " [beneficiary name] is now preparing to travel to [treatment location] with their family. Once reached the destination, they will be hosted by our [hosting chapter] chapter until the operation. \n\n[beneficiary name] has a long journey ahead, but is surrounded by the support of the [hosting chapter] PCRF community." +
-      " \n\nThank you so much for helping to change [beneficiary name]’s life. [beneficiary name] and [gender] family will be eternally grateful for your support." +
-      "\n\nThank You, \nPCRF";
+    var contentObj = {};
+    contentObj[0] = "Hello [donor_first_name], \n\nYour donation to PCRF has helped change [campaign_name]’s life. \n\n[campaign_name] is [age] years old and from [home_location]. [campaign_name] has a condition of [campaign_condition]." +
+         " We only hope to correct this problem is surgery at an advanced children’s hospital outside of [treatment_location]. The PCRF has arranged a treatment for the beneficiary's treatment in [treatment_location]. \n\n"  +
+         " [campaign_name] is now preparing to travel to [treatment location] with [campaign_name]’s [family_member]. Once reached the destination, they will be hosted by our [hosting_chapter] chapter until the operation. \n\n[campaign_name] has a long journey ahead, but is surrounded by the support of the [hosting_chapter] PCRF community." +
+         " \n\nThank you so much for helping to change [beneficiary name]’s life. [campaign_name] and [campaign_name]’s family will be eternally grateful for your support." +
+         "\n\nThank You, \nPCRF";
 
+    contentObj[1] = "Hello [donor_first_name], \n\nDo you remember [campaign_name]?\n\n[campaign_name] is [age] years old and from [home_location]. [campaign_name] has a condition of [campaign_condition]." +
+         " [campaign_name]’s condition was, unfortunately, not treatable in [home_location]. Therefore, the PCRF has arranged a treatment in [treatment_location]. \n\n"  +
+         " [campaign_name] arrived to [treatment_location] last week, and this week underwent a long and complicated surgery with the help of local doctors, who are specialized in [campaign_treatment]. " +
+         " \n\n[campaign_name] and [campaign_name]’s whole family will be under the care and support of our PCRF [hosting_chapter] Chapter as [campaign_name] receives treatment and undergoes this life-changing surgery.Thank you so much for helping to change [beneficiary name]’s life. [beneficiary name] and [gender] family will be eternally grateful for your support." +
+         "\n\nThank You, \nPCRF";
+
+    contentObj[2] = "Hello [donor_first_name], \n\nWe have great news about [campaign_name]! [campaign_name] is [age] years old and from [home_location]. [campaign_name] had a condition of [campaign_condition], which was not treatable in [home_location]" +
+     "\n\nThe PCRF has arranged a treatment in [treatment_location]. [campaign_name] arrived to [treatment_location] and underwent a long and complicated [campaign_treatment] operation. [campaign_name] will soon begin an intensive recovery period." +
+     "\n\n[campaign_name] will be a guest in [treatment_location] until the end of the recovery period. We wish all the best for [campaign_name], and we will keep you updated about the situation." +
+     " \n\nThank you so much for helping. Your contributions are making a significant change in [campaign_name]’s life. " +
+     "\n\nThank You, \nPCRF";
+
+
+    contentObj[3]  = "Hello [donor_first_name], \n\nYour donation to PCRF has helped change [campaign_name]’s life. \n\n[campaign_name] is [age] years old and from [home_location]. Recently, with the help of your donation, we sent [campaign_name] to [treatment_location] to receive treatment for [campaign_condition]." +
+    	"\n\nThe operation and recovery period were very successful. We thank the doctors the hospital and the local volunteers and community for hosting [campaign_name] while receiving treatment in [treatment_location]. " +
+    	"\n\n[campaign_name] is doing well and is now preparing to return to her home in  [home_location] thanks to your generous help. [campaign_name] is grateful for having the chance to receive treatment that [campaign_name] desperately needed. We wish [campaign_name] a happy and healthy life in the future."+
+      "\n\n We want to thank our PCRF [hosting_chapter] Chapter and the local community for hosting [campaign_name] and the outpouring of support they have shown."+
+      "\n\nThank You, \nPCRF";
+
+
+
+    console.log(this.props.emailKey)
     return (
-      {editorState: EditorState.createWithContent(ContentState.createFromText(content))});
+      {editorState: EditorState.createWithContent(ContentState.createFromText(contentObj[this.props.emailKey - 1]))});
   },
   onChange : function(editorState){
     this.setState({editorState
