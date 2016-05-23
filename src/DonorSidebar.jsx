@@ -4,23 +4,14 @@ var ReactDOM = require('react-dom');
 
 
 
-var leftButtonStyle = {
-  display: 'inline',
-  marginRight: '30px',
-  marginBottom: '0px',
-  bottom: '0'
-};
-
-var rightButtonStyle = {
-  display: 'inline',
-  marginLeft: '30px'
+var ButtonStyle = {
 
 };
 
 
 var style = {
   width: '100%',
-  height: '100vh'
+  height: 'Auto'
 };
 
 module.exports = React.createClass({
@@ -32,15 +23,15 @@ module.exports = React.createClass({
           <PageHeader><small> Donors </small></PageHeader>
           <Thumbnail style={style}>
               {this.props.donors}
-            <Button
-              style={leftButtonStyle}
-              bsStyle="primary"
-              bsSize="small">Send Update
-            </Button>
-            <Button
-              style={leftButtonStyle}
+            <Button justified
+              style={ButtonStyle}
               bsStyle="primary"
               bsSize="small">Preview Email
+            </Button>
+            <Button justified
+              style={ButtonStyle}
+              bsStyle="primary"
+              bsSize="small">Send Email
             </Button>
           </Thumbnail>
         </div>
