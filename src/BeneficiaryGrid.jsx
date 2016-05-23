@@ -13,6 +13,9 @@ var rowStyle = {
   display:'flex',
   flexWrap: 'wrap'
 }
+var buttonStyle = {
+
+}
 
 var stageMap = {
   1: "Transportation to Treatment Location",
@@ -58,26 +61,17 @@ module.exports = React.createClass({
         paddingTop: '10px'
 
       }}>
-          <Grid>
-            <Row>
-              <Col xs={12} md={10}>
-                <Grid className="container-fluid" style={gridStyle}>
-                  <Row style={rowStyle}>
-                    {rows}
-                  </Row>
-                </Grid>
-              </Col>
-              <Col xs={12} md={2}>
-                <AutoAffix OffsetBottom={15} container={this}>
-                  <Button
-                    onClick={this.handleEmailTemplateOpen}
-                    bsStyle="primary"
-                    bsSize="large">Update Donors
-                  </Button>
-                </AutoAffix>
-              </Col>
-            </Row>
-          </Grid>
+        <Grid className="container-fluid" style={gridStyle}>
+          <Row>
+              <Button
+                onClick={this.handleEmailTemplateOpen} bsStyle="primary" bsSize="large"> Update Donors
+              </Button>
+          </Row>
+          <Row style={rowStyle}>
+            {rows}
+          </Row>
+        </Grid>
+
 
       </div>
     );

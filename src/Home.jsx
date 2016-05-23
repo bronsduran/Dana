@@ -34,6 +34,8 @@ module.exports = React.createClass({
     var programData = [
                         {programName: 'Treatment Abroad' , numProjects: '45', programLocation: 'Middle East', averageCostPerProject: 'Unknown', image: 'URL'},
                         {programName: 'Medical Missions', numProjects: '107' , programLocation: 'Middle East', averageCostPerProject: 'Unknown', image: 'URL'},
+                        {programName: 'Gaza Mental Health Project', numProjects: '55' , programLocation: 'Gaza', averageCostPerProject: 'Unknown', image: 'URL'},
+                        {programName: 'Gaza Educational Initiative', numProjects: '55' , programLocation: 'Gaza', averageCostPerProject: 'Unknown', image: 'URL'},
                       ]
     var programs = [];
 
