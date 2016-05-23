@@ -24,9 +24,9 @@ module.exports = React.createClass({
       return (
         <div onClick={this.handleDashboardOpen} >
           <Panel header={title} style={style} >
-            <p>Location: {this.props.program.programLocation} </p>
             <p>Number of Beneficiaries: {this.props.program.numProjects}</p>
-            <p>Cost per project: {this.props.program.averageCostPerProject}</p>
+            <p>Number of Donors: {this.props.program.numDonors}</p>
+            <p>Total Donations: {this.props.program.totalDonations}</p>
           </Panel>
         </div>
       );

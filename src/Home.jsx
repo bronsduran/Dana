@@ -32,10 +32,10 @@ module.exports = React.createClass({
 	render() {
 
     var programData = [
-                        {programName: 'Treatment Abroad' , numProjects: '45', programLocation: 'Middle East', averageCostPerProject: 'Unknown', image: 'URL'},
-                        {programName: 'Medical Missions', numProjects: '107' , programLocation: 'Middle East', averageCostPerProject: 'Unknown', image: 'URL'},
-                        {programName: 'Gaza Mental Health Project', numProjects: '55' , programLocation: 'Gaza', averageCostPerProject: 'Unknown', image: 'URL'},
-                        {programName: 'Gaza Educational Initiative', numProjects: '55' , programLocation: 'Gaza', averageCostPerProject: 'Unknown', image: 'URL'},
+                        {programName: 'Treatment Abroad' , numProjects: '45', numDonors: '234', totalDonations: '$2345.00' },
+                        {programName: 'Medical Missions', numProjects: '107', numDonors: '334' , totalDonations: '$3874.00' },
+                        {programName: 'Gaza Mental Health Project', numProjects: '55' , numDonors: '418' ,totalDonations: '$1122.00'  },
+                        {programName: 'Gaza Educational Initiative', numProjects: '35' , numDonors: '197' ,totalDonations: '$1345.00' },
                       ]
     var programs = [];
 
@@ -52,12 +52,12 @@ module.exports = React.createClass({
         <Navbar />
         <div id="main">
           <Grid className="container-fluid" style={gridStyle}>
-          <PageHeader>
-            <small> Programs </small>
-              <Button style={addProgramButtonSytle} bsStyle="primary">
-                +
-              </Button>
-          </PageHeader>
+            <PageHeader>
+              <small> Programs </small>
+                <Button style={addProgramButtonSytle} bsStyle="primary">
+                  +
+                </Button>
+            </PageHeader>
             <Row style={rowStyle}>
               {programs}
             </Row>

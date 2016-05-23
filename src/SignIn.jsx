@@ -23,9 +23,16 @@ var titleStyle = {
   bottom: '0',
   right: '0',
   textAlign: 'center'
-}
+};
 
+var ButtonStyle = {
+  paddingRight: '10px',
+  marginRight: '10px'
+};
 
+var loginStyle = {
+  backgroundColor: "#86A0BE"
+};
 
 module.exports = React.createClass({
 
@@ -35,11 +42,10 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div>
+      <div style={loginStyle}>
         <div style={titleStyle}>
-          <h1>
-            Dana
-          </h1>
+            <img src="src/assets/Dāna.png">
+            </img>
         </div>
 
         <div style={style}>
@@ -72,10 +78,10 @@ module.exports = React.createClass({
 
               <FormGroup>
                 <Col smOffset={2} sm={10}>
-                  <Button onClick={this.handleDashboardOpen}>
+                  <Button onClick={this.handleDashboardOpen} ButtonStyle={ButtonStyle}>
                     Sign in
                   </Button>
-                  <Button justified >
+                  <Button >
                     Sign Up
                   </Button>
                 </Col>
