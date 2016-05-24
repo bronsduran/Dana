@@ -55,6 +55,9 @@ module.exports = React.createClass({
             <PageHeader>
               <small> Programs </small>
                 <Button style={addProgramButtonSytle} bsStyle="primary">
+                  View Data
+                </Button>
+                <Button style={addProgramButtonSytle} bsStyle="primary">
                   +
                 </Button>
             </PageHeader>

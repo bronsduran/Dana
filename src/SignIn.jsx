@@ -22,7 +22,12 @@ var titleStyle = {
   left: '0',
   bottom: '0',
   right: '0',
-  textAlign: 'center'
+  textAlign: 'center',
+  textColor: 'dark-grey'
+};
+
+var title = {
+  color: 'dark-grey'
 };
 
 var ButtonStyle = {
@@ -44,8 +49,7 @@ module.exports = React.createClass({
     return (
       <div style={loginStyle}>
         <div style={titleStyle}>
-            <img src="src/assets/Dāna.png">
-            </img>
+            <h1 style={title}> DANA </h1>
         </div>
 
         <div style={style}>
@@ -71,13 +75,13 @@ module.exports = React.createClass({
               </FormGroup>
 
               <FormGroup>
-                <Col smOffset={2} sm={10}>
+                <Col className="center-align" >
                   <Checkbox>Remember me</Checkbox>
                 </Col>
               </FormGroup>
 
               <FormGroup>
-                <Col smOffset={2} sm={10}>
+                <Col className="center-align">
                   <Button onClick={this.handleDashboardOpen} ButtonStyle={ButtonStyle}>
                     Sign in
                   </Button>
