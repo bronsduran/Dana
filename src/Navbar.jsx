@@ -21,7 +21,7 @@ module.exports = React.createClass({
   render() {
     return (
       <div>
-        <Navbar>
+        <Navbar >
 
           <Navbar.Header>
             <Navbar.Brand>
@@ -29,7 +29,7 @@ module.exports = React.createClass({
             </Navbar.Brand>
           </Navbar.Header>
 
-    
+
         </Navbar>
       </div>
     );

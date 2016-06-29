@@ -39,6 +39,9 @@ module.exports = React.createClass({
     for (var key in keys){
       var campaign = this.props.campaigns[keys[key]];
       var donor = this.props.donors[keys[key]];
+        console.log("campaing name", campaign.campaign_name);
+        console.log("campaign stage", campaign.campaign_stage);
+        console.log("stage key ", stageMap[this.props.stageKey]);
         if (campaign.campaign_stage == stageMap[this.props.stageKey]) {
           rows.push(
             <Col xs={12} md={3}>
@@ -55,7 +58,6 @@ module.exports = React.createClass({
         );
       }
     }
-
 
     return (
       <div style={{
